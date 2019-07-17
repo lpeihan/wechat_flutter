@@ -13,6 +13,7 @@ class IconFont {
 	static const IconData iconyuyin = IconData(0xe609, fontFamily: _family);
 	static const IconData iconprofile_active = IconData(0xe68f, fontFamily: _family);
 	static const IconData iconfriends = IconData(0xe638, fontFamily: _family);
+	static const IconData iconmute = IconData(0xe658, fontFamily: _family);
 	static const IconData iconadd = IconData(0xe657, fontFamily: _family);
 	static const IconData iconpay = IconData(0xe62a, fontFamily: _family);
 	static const IconData iconprofile = IconData(0xe687, fontFamily: _family);
