@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:wechat_flutter/pages/home_page.dart';
+import 'package:wechat_flutter/pages/search_page.dart';
 
 final routes = {
   '/': (context) => HomePage(),
+  '/search': (context) => SearchPage()
 };
 
 var onGenerateRoute = (RouteSettings settings) {

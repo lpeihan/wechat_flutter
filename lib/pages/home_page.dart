@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
-import 'package:wechat_flutter/pages/contact/contact_page.dart';
-import 'package:wechat_flutter/pages/discover/discover_page.dart';
-import 'package:wechat_flutter/pages/profile/profile_page.dart';
-import 'package:wechat_flutter/pages/wechat/wechat_page.dart';
+import 'package:wechat_flutter/pages/contact_page.dart';
+import 'package:wechat_flutter/pages/discover_page.dart';
+import 'package:wechat_flutter/pages/profile_page.dart';
+import 'package:wechat_flutter/pages/wechat_page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: Icon(IconFont.iconsearch, size: 20.0),
             onPressed: () {
-              print('iconsearch');
+              Navigator.of(context).pushNamed('/search');
             },
           ),
           SizedBox(width: 10.0),
