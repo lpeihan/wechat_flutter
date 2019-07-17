@@ -41,18 +41,22 @@ List<Conversation> conversations = [
     isAvatarLocal: true,
     title: '腾讯新闻',
     titleColor: 0xff333333,
+    unreadMsgCount: 0,
     desc: '豪车与出租车刮擦 俩车主划拳定责',
     updateAt: '17:20',
     isMute: false,
+    displayDot: false,
   ),
   Conversation(
     avatar: 'assets/images/ic_wx_games.png',
     isAvatarLocal: true,
     title: '微信游戏',
     titleColor: 0xff586b95,
+    unreadMsgCount: 0,
     desc: '25元现金助力开学季！',
     updateAt: '17:12',
     isMute: false,
+    displayDot: false,
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/men/10.jpg',
@@ -63,6 +67,7 @@ List<Conversation> conversations = [
     updateAt: '17:56',
     isMute: true,
     unreadMsgCount: 0,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/10.jpg',
@@ -73,6 +78,7 @@ List<Conversation> conversations = [
     updateAt: '17:58',
     isMute: false,
     unreadMsgCount: 3,
+    displayDot: false
   ),
   Conversation(
     avatar: 'assets/images/ic_fengchao.png',
@@ -82,6 +88,8 @@ List<Conversation> conversations = [
     desc: '喷一喷，竟比洗牙还神奇！5秒钟还你一个漂亮洁白的口腔。',
     isMute: false,
     updateAt: '17:12',
+    unreadMsgCount: 0,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/57.jpg',
@@ -92,6 +100,7 @@ List<Conversation> conversations = [
     updateAt: '昨天',
     isMute: false,
     unreadMsgCount: 99,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/men/10.jpg',
@@ -102,6 +111,7 @@ List<Conversation> conversations = [
     updateAt: '17:56',
     isMute: true,
     unreadMsgCount: 0,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/10.jpg',
@@ -112,6 +122,7 @@ List<Conversation> conversations = [
     updateAt: '17:58',
     isMute: false,
     unreadMsgCount: 3,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/57.jpg',
@@ -122,6 +133,7 @@ List<Conversation> conversations = [
     updateAt: '昨天',
     isMute: false,
     unreadMsgCount: 0,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/men/10.jpg',
@@ -132,6 +144,7 @@ List<Conversation> conversations = [
     updateAt: '17:56',
     isMute: true,
     unreadMsgCount: 0,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/10.jpg',
@@ -142,6 +155,7 @@ List<Conversation> conversations = [
     updateAt: '17:58',
     isMute: false,
     unreadMsgCount: 1,
+    displayDot: false
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/57.jpg',
@@ -152,5 +166,6 @@ List<Conversation> conversations = [
     updateAt: '昨天',
     isMute: false,
     unreadMsgCount: 0,
+    displayDot: false
   ),
 ];

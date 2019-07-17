@@ -13,6 +13,56 @@ class WechatPage extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         Conversation conversation = conversations[index];
 
+        Widget _avatar = conversation.isAvatarLocal ? Image.asset(conversation.avatar, width: 54.0) :
+          Image.network(conversation.avatar, width: 54.0);
+
+        Widget _avatarContainer;
+        if (conversation.unreadMsgCount > 0) {
+          if (conversation.displayDot) {
+            _avatarContainer = Stack(
+              overflow: Overflow.visible,
+              children: <Widget>[
+                _avatar,
+                Positioned(
+                  right: -3.0,
+                  top: -3.0,
+                  child: Container(
+                    width: 10.0,
+                    height: 10.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Colors.red
+                    ),
+                  ),
+                )
+              ],
+            );
+          } else {
+            _avatarContainer = Stack(
+              overflow: Overflow.visible,
+              children: <Widget>[
+                _avatar,
+                Positioned(
+                  right: -8.0,
+                  top: -8.0,
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 20.0,
+                    height: 20.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.red
+                    ),
+                    child: Text(conversation.unreadMsgCount.toString(), style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                  ),
+                )
+              ],
+            );
+          }
+        } else {
+          _avatarContainer = _avatar;
+        }
+
         return Container(
           padding: EdgeInsets.all(12.0),
           decoration: BoxDecoration(
@@ -22,8 +72,7 @@ class WechatPage extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              conversation.isAvatarLocal ? Image.asset(conversation.avatar, width: 54.0) :
-          Image.network(conversation.avatar, width: 54.0),
+              _avatarContainer,
               SizedBox(width: 12.0,),
               Expanded(
                 child: Column(
