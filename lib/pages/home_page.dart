@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/pages/contact_page.dart';
@@ -43,6 +44,29 @@ class _HomePageState extends State<HomePage> {
     )
   ];
 
+  List<_PopupMenuItem> _popupMenuItems = [
+    _PopupMenuItem(
+      icon: Icon(IconFont.iconmessage_active, color: Colors.white,),
+      title: '发起群聊'
+    ),
+    _PopupMenuItem(
+      icon: Icon(IconFont.iconfriends, color: Colors.white, size: 28.0,),
+      title: '添加朋友'
+    ),
+    _PopupMenuItem(
+      icon: Icon(IconFont.iconyuyin, color: Colors.white,),
+      title: '扫一扫'
+    ),
+    _PopupMenuItem(
+      icon: Icon(IconFont.iconpay, color: Colors.white,),
+      title: '收付款'
+    ),
+    _PopupMenuItem(
+      icon: Icon(IconFont.iconhelp, color: Colors.white,),
+      title: '帮助与反馈'
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,11 +81,28 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           SizedBox(width: 10.0),
-          IconButton(
-            icon: Icon(IconFont.iconadd_, size: 24.0),
-            onPressed: () {
-              print('iconadd_');
-            },
+          Theme(
+            data: ThemeData(cardColor: Color(AppColors.primaryColor)),
+            child: PopupMenuButton(
+              padding: EdgeInsets.all(0.0),
+              offset: Offset(0, 150),
+              icon: Icon(IconFont.iconadd, size: 24.0, color: Colors.white,),
+              itemBuilder: (BuildContext context) {
+                return _popupMenuItems.map((_PopupMenuItem item) {
+                  return PopupMenuItem(
+                    child: Row(
+                      children: <Widget>[
+                        item.icon,
+                        Container(
+                          padding: EdgeInsets.only(left: 15.0),
+                          child: Text(item.title, style: TextStyle(color: Colors.white),),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList();
+              },
+            ),
           ),
           SizedBox(width: 10.0),
         ],
@@ -108,4 +149,11 @@ class _BottomNavItem {
   final Widget page;
 
   _BottomNavItem({this.icon, this.activeIcon, this.title, this.page});
+}
+
+class _PopupMenuItem {
+  final Icon icon;
+  final String title;
+
+  _PopupMenuItem({this.icon, this.title});
 }
