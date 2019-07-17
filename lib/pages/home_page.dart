@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+import 'package:flutter_web/material.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/pages/contact_page.dart';

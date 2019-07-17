@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'constants/app_colors.dart';
 import 'routes.dart';
 

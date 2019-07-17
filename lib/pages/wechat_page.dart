@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 
 class WechatPage extends StatelessWidget {
   const WechatPage({Key key}) : super(key: key);

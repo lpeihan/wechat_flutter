@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'package:wechat_flutter/pages/home_page.dart';
 import 'package:wechat_flutter/pages/search_page.dart';
 
