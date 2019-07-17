@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'pages/home_page.dart';
+import 'package:wechat_flutter/pages/home_page.dart';
 
 final routes = {
   '/': (context) => HomePage(),

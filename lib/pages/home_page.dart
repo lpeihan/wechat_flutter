@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import '../constants/app_colors.dart';
-import '../constants/icon_font.dart';
+import 'package:wechat_flutter/constants/app_colors.dart';
+import 'package:wechat_flutter/constants/icon_font.dart';
+import 'package:wechat_flutter/pages/contact/contact_page.dart';
+import 'package:wechat_flutter/pages/discover/discover_page.dart';
+import 'package:wechat_flutter/pages/profile/profile_page.dart';
+import 'package:wechat_flutter/pages/wechat/wechat_page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -10,27 +14,32 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  PageController _pageController = PageController(initialPage: 0);
 
   List<_BottomNavItem> _bottomNavItems = [
     _BottomNavItem(
       icon: Icon(IconFont.iconmessage, size: 22.0),
       activeIcon: Icon(IconFont.iconmessage_active, size: 22.0),
-      title: '微信'
+      title: '微信',
+      page: WechatPage()
     ),
     _BottomNavItem(
       icon: Icon(IconFont.iconconcact, size: 28.0,),
       activeIcon: Icon(IconFont.iconconcact_active, size: 28.0,),
-      title: '通讯录'
+      title: '通讯录',
+      page: ContactPage()
     ),
     _BottomNavItem(
       icon: Icon(IconFont.icondiscover,  size: 22.0),
       activeIcon: Icon(IconFont.icondiscover_active, size: 22.0),
-      title: '发现'
+      title: '发现',
+      page: DiscoverPage()
     ),
     _BottomNavItem(
       icon: Icon(IconFont.iconprofile),
       activeIcon: Icon(IconFont.iconprofile_active),
-      title: '我'
+      title: '我',
+      page: ProfilePage()
     )
   ];
 
@@ -57,6 +66,18 @@ class _HomePageState extends State<HomePage> {
           SizedBox(width: 10.0),
         ],
       ),
+      body: PageView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return _bottomNavItems[index].page;
+        },
+        controller: _pageController,
+        itemCount: _bottomNavItems.length,
+        onPageChanged: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: _bottomNavItems.map((_BottomNavItem item) {
           return BottomNavigationBarItem(
@@ -72,6 +93,7 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            _pageController.jumpToPage(_currentIndex);
           });
         },
       ),
