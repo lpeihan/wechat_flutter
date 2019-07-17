@@ -37,9 +37,9 @@ class WechatPage extends StatelessWidget {
               ),
               Column(
                 children: <Widget>[
-                  Text(conversation.updateAt, style: TextStyle(color: Color(AppColors.textGreyColor), fontSize: 13.0)),
+                  Text(conversation.updateAt, style: TextStyle(color: Color(AppColors.textGreyColor),fontSize: 13.0)),
                   SizedBox(height: 8.0),
-                  Icon(IconFont.iconmute, color: Color(AppColors.textGreyColor), size: 16.0)
+                  Icon(IconFont.iconmute, color: conversation.isMute ? Color(AppColors.textGreyColor) : Colors.transparent, size: 16.0)
                 ],
               )
             ],

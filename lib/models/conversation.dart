@@ -33,7 +33,8 @@ List<Conversation> conversations = [
     desc: '',
     updateAt: '19:56',
     unreadMsgCount: 2,
-    displayDot: true
+    displayDot: true,
+    isMute: false
   ),
   Conversation(
     avatar: 'assets/images/ic_tx_news.png',
@@ -42,6 +43,7 @@ List<Conversation> conversations = [
     titleColor: 0xff333333,
     desc: '豪车与出租车刮擦 俩车主划拳定责',
     updateAt: '17:20',
+    isMute: false,
   ),
   Conversation(
     avatar: 'assets/images/ic_wx_games.png',
@@ -50,13 +52,14 @@ List<Conversation> conversations = [
     titleColor: 0xff586b95,
     desc: '25元现金助力开学季！',
     updateAt: '17:12',
+    isMute: false,
   ),
   Conversation(
     avatar: 'https://randomuser.me/api/portraits/men/10.jpg',
     isAvatarLocal: false,
     title: '汤姆丁',
     titleColor: 0xff333333,
-    desc: '今晚要一起去吃肯德基吗？',
+    desc: '😃今晚要一起去吃肯德基吗？',
     updateAt: '17:56',
     isMute: true,
     unreadMsgCount: 0,
@@ -77,6 +80,7 @@ List<Conversation> conversations = [
     title: '蜂巢智能柜',
     titleColor: 0xff586b95,
     desc: '喷一喷，竟比洗牙还神奇！5秒钟还你一个漂亮洁白的口腔。',
+    isMute: false,
     updateAt: '17:12',
   ),
   Conversation(
