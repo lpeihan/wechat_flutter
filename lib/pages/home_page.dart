@@ -82,11 +82,11 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(width: 10.0),
           Theme(
-            data: ThemeData(cardColor: Color(AppColors.primaryColor)),
+            data: ThemeData(cardColor: Color(AppColors.primaryBackground)),
             child: PopupMenuButton(
               padding: EdgeInsets.all(0.0),
               offset: Offset(0, 150),
-              icon: Icon(IconFont.iconadd, size: 24.0, color: Colors.white,),
+              icon: Icon(IconFont.iconadd, size: 24.0),
               itemBuilder: (BuildContext context) {
                 return _popupMenuItems.map((_PopupMenuItem item) {
                   return PopupMenuItem(

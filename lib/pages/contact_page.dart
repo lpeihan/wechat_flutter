@@ -2,15 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/models/contacts.dart';
 
-class ContactPage extends StatelessWidget {
-  const ContactPage({Key key}) : super(key: key);
+
+
+class ContactPage extends StatefulWidget {
+  ContactPage({Key key}) : super(key: key);
+
+  _ContactPageState createState() => _ContactPageState();
+}
+
+class _ContactPageState extends State<ContactPage> {
+  List<Contact> _contacts = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _contacts
+      ..addAll(contacts)
+      ..addAll(contacts)
+      ..addAll(contacts)
+      ..sort((a, b) => a.nameIndex.compareTo(b.nameIndex));
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: contacts.length,
+      itemCount: _contacts.length,
       itemBuilder: (BuildContext context, int index) {
-        Contact contact = contacts[index];
+        Contact contact = _contacts[index];
 
         return Column(
           children: <Widget>[

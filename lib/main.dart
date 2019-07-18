@@ -11,7 +11,7 @@ class Wechat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData(
         primaryColor: Color(AppColors.primaryColor),
       ),
 
