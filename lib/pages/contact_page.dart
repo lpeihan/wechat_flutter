@@ -27,7 +27,7 @@ class ContactItem extends StatelessWidget {
           padding: EdgeInsets.only(left: 15.0),
           color: Color(AppColors.primaryColor),
           alignment: Alignment.centerLeft,
-          child: Text(contact.nameIndex, style: TextStyle(fontSize: 12.0),),
+          child: Text(contact.letter, style: TextStyle(fontSize: 12.0),),
         ),
       );
     }
@@ -81,28 +81,25 @@ class _ContactPageState extends State<ContactPage> {
   List<Contact> _contacts = [];
   ScrollController _scrollController = ScrollController();
   final Map heightMap = { INDEX_LETTERS[0]: 0.0 };
-  double tileHeight = 0; 
+  double tileHeight = 0;
+  String currentLetter = INDEX_LETTERS[0];
 
   List<Contact> topItems = [
     Contact(
       avatar: 'assets/images/ic_new_friend.png',
       name: '新的朋友',
-      nameIndex: ''
     ),
     Contact(
       avatar: 'assets/images/ic_group_chat.png',
       name: '群聊',
-      nameIndex: ''
     ),
     Contact(
       avatar: 'assets/images/ic_tag.png',
       name: '标签',
-      nameIndex: ''
     ),
     Contact(
       avatar: 'assets/images/ic_public_account.png',
       name: '公众号',
-      nameIndex: ''
     ),
   ];
 
@@ -116,9 +113,31 @@ class _ContactPageState extends State<ContactPage> {
       ..addAll(contacts)
       ..addAll(contacts)
       ..addAll(contacts)
-      ..sort((a, b) => a.nameIndex.compareTo(b.nameIndex));
+      ..sort((a, b) => a.letter.compareTo(b.letter));
 
     this.initHeight();
+
+    _scrollController.addListener(() {
+      double offset = _scrollController.offset;
+
+      List list = heightMap.keys.toList();
+      String nearLetter = list[0];
+      double nearHeight = offset - heightMap[nearLetter];
+
+      for (int i = 1; i < list.length; i++) {
+        double dy = offset - heightMap[list[i]];
+
+        if (dy >= 0 && dy < nearHeight) {
+          nearLetter = list[i];
+          nearHeight = dy;
+        }
+      }
+
+      setState(() {
+        currentLetter =  nearLetter;
+      });
+    });
+
   }
 
   @override
@@ -134,13 +153,13 @@ class _ContactPageState extends State<ContactPage> {
       bool isGroupTitle = true;
       double height = ITEM_HEIGHT + BORDER_WIDTH;
 
-      if (i >= 1 && _contacts[i].nameIndex.compareTo(_contacts[i - 1].nameIndex) == 0) {
+      if (i >= 1 && _contacts[i].letter.compareTo(_contacts[i - 1].letter) == 0) {
         isGroupTitle = false;
       }
 
       if (isGroupTitle) {
         height += TITLE_HEIGHT;
-        heightMap[_contacts[i].nameIndex] = _totalHeight;
+        heightMap[_contacts[i].letter] = _totalHeight;
       }
 
       _totalHeight += height;
@@ -181,7 +200,7 @@ class _ContactPageState extends State<ContactPage> {
               index = index - topItems.length;
               contact = _contacts[index];
 
-              if (index >= 1 && contact.nameIndex == _contacts[index - 1].nameIndex) {
+              if (index >= 1 && contact.letter == _contacts[index - 1].letter) {
                 isGroupTitle = false;
               }
             }
@@ -219,7 +238,11 @@ class _ContactPageState extends State<ContactPage> {
             child: Column(
               children: INDEX_LETTERS.map((String letter) {
                 return Expanded(
-                  child: Text(letter, style: TextStyle(fontSize: 12.0),),
+                  child: Text(letter,
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: Color(currentLetter == letter ? AppColors.wechatColor : AppColors.textColor)
+                  ),),
                 );
               }).toList(),
             ),
