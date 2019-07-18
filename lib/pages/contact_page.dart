@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/models/contacts.dart' show contacts, Contact, INDEX_LETTERS;
 
@@ -11,10 +12,6 @@ class ContactItem extends StatelessWidget {
   final Contact contact;
 
   const ContactItem({Key key, this.isGroupTitle, @required this.contact}) : super(key: key);
-
-  bool get isAvatarFromNet {
-    return contact.avatar.startsWith('http');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +34,10 @@ class ContactItem extends StatelessWidget {
         padding: EdgeInsets.only(left: 15.0),
         child: Row(
           children: <Widget>[
-            Container(
-              width: 44.0,
-              height: 44.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5.0),
-                image: DecorationImage(
-                  image: isAvatarFromNet ? NetworkImage(contact.avatar) : AssetImage(contact.avatar), fit: BoxFit.cover
-                )
-              ),
+            WeImage(
+              image: contact.avatar,
+              width: 42.0,
+              height: 42.0,
             ),
             Expanded(
               child: Container(

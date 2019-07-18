@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/models/conversation.dart';
@@ -13,8 +14,11 @@ class WechatPage extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         Conversation conversation = conversations[index];
 
-        Widget _avatar = conversation.isAvatarLocal ? Image.asset(conversation.avatar, width: 54.0) :
-          Image.network(conversation.avatar, width: 54.0);
+        Widget _avatar = WeImage(
+          image: conversation.avatar,
+          width: 48.0,
+          height: 48.0,
+        );
 
         Widget _avatarContainer;
         if (conversation.unreadMsgCount > 0) {
@@ -43,14 +47,14 @@ class WechatPage extends StatelessWidget {
               children: <Widget>[
                 _avatar,
                 Positioned(
-                  right: -8.0,
-                  top: -8.0,
+                  right: -6.0,
+                  top: -6.0,
                   child: Container(
                     alignment: Alignment.center,
-                    width: 20.0,
-                    height: 20.0,
+                    width: 18.0,
+                    height: 18.0,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(18.0),
                       color: Colors.red
                     ),
                     child: Text(conversation.unreadMsgCount.toString(), style: TextStyle(color: Colors.white, fontSize: 12.0)),
