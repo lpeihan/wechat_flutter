@@ -68,7 +68,7 @@ flutter:
     - assets/images/ic_settings.png
     - assets/images/ic_qrcode_preview_tiny.png
     - assets/images/default_nor_avatar.png
-    - assets/images/ad_game_notify.png
+    - assets/images/ic_weixin.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

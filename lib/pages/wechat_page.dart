@@ -67,35 +67,48 @@ class WechatPage extends StatelessWidget {
           _avatarContainer = _avatar;
         }
 
-        return Container(
-          padding: EdgeInsets.all(12.0),
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(color: Color(AppColors.borderColor), width: 0.5)
-            )
-          ),
-          child: Row(
-            children: <Widget>[
-              _avatarContainer,
-              SizedBox(width: 12.0,),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(conversation.title, style: TextStyle(fontSize: 17.0, color: Color(conversation.titleColor))),
-                    SizedBox(height: 6.0),
-                    Text(conversation.desc, style: TextStyle(color: Color(AppColors.textGreyColor)), maxLines: 1, overflow: TextOverflow.ellipsis,)
-                  ],
+        return InkWell(
+          onTap: () {},
+          child: Container(
+            height: 80.0,
+            padding: EdgeInsets.symmetric(horizontal: 12.0),
+            child: Row(
+              children: <Widget>[
+                _avatarContainer,
+                SizedBox(width: 12.0,),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Color(AppColors.borderColor), width: 0.5)
+                    )),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(conversation.title, style: TextStyle(fontSize: 17.0, color: Color(conversation.titleColor))),
+                              SizedBox(height: 6.0),
+                              Text(conversation.desc, style: TextStyle(color: Color(AppColors.textGreyColor)), maxLines: 1, overflow: TextOverflow.ellipsis,)
+                            ],
+                          ),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(conversation.updateAt, style: TextStyle(color: Color(AppColors.textGreyColor),fontSize: 12.0)),
+                            SizedBox(height: 12.0),
+                            Icon(IconFont.iconmute, color: conversation.isMute ? Color(AppColors.textGreyColor) : Colors.transparent, size: 16.0)
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-              Column(
-                children: <Widget>[
-                  Text(conversation.updateAt, style: TextStyle(color: Color(AppColors.textGreyColor),fontSize: 13.0)),
-                  SizedBox(height: 8.0),
-                  Icon(IconFont.iconmute, color: conversation.isMute ? Color(AppColors.textGreyColor) : Colors.transparent, size: 16.0)
-                ],
-              )
-            ],
+              ],
+            ),
           ),
         );
       },

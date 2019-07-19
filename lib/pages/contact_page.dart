@@ -5,7 +5,6 @@ import 'package:wechat_flutter/models/contacts.dart' show contacts, Contact, IND
 
 const double TITLE_HEIGHT = 24;
 const double ITEM_HEIGHT = 64;
-const double BORDER_WIDTH = 0.5;
 
 class ContactItem extends StatelessWidget {
   final bool isGroupTitle;
@@ -47,7 +46,7 @@ class ContactItem extends StatelessWidget {
                 child: Text(contact.name, style: TextStyle(fontSize: 16.0),),
                 decoration: BoxDecoration(
                   border: Border(
-                    bottom: BorderSide(width: BORDER_WIDTH, color: Color(AppColors.borderColor))
+                    bottom: BorderSide(width: 0.5, color: Color(AppColors.borderColor))
                   )
                 ),
               ),
@@ -57,8 +56,11 @@ class ContactItem extends StatelessWidget {
       )
     );
 
-    return Column(
-      children: _buildWidget
+    return InkWell(
+      onTap: () {},
+      child: Column(
+        children: _buildWidget
+      ),
     );
   }
 }
@@ -103,8 +105,6 @@ class _ContactPageState extends State<ContactPage> {
 
     _contacts
       ..addAll(contacts)
-      ..addAll(contacts)
-      ..addAll(contacts)
       ..sort((a, b) => a.letter.compareTo(b.letter));
 
     this.initHeight();
@@ -143,7 +143,7 @@ class _ContactPageState extends State<ContactPage> {
   
     for(int i = 0; i < _contacts.length; i++) {
       bool isGroupTitle = true;
-      double height = ITEM_HEIGHT + BORDER_WIDTH;
+      double height = ITEM_HEIGHT;
 
       if (i >= 1 && _contacts[i].letter.compareTo(_contacts[i - 1].letter) == 0) {
         isGroupTitle = false;
