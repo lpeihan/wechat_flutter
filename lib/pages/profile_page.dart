@@ -8,8 +8,6 @@ import 'package:wechat_flutter/models/profile.dart';
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
 
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +17,7 @@ class ProfilePage extends StatelessWidget {
           Container(
             color: Colors.white,
             alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(bottom: 12.0),
+            margin: EdgeInsets.only(bottom: 10.0),
             padding: EdgeInsets.only(left: 20, right: 12.0),
             height: 90.0,
             child: Row(
@@ -52,17 +50,44 @@ class ProfilePage extends StatelessWidget {
               ],
             ),
           ),
-          WeTile(iconPath: 'assets/images/ic_wallet.png', title: '支付', marginBottom: true,),
+          WeTile(
+            iconPath: 'assets/images/ic_wallet.png',
+            title: '支付',
+            onPressed: () {}
+          ),
+          SizedBox(height: 10,),
 
-          WeTile(iconPath: 'assets/images/ic_collections.png', title: '收藏', borderBottom: true,),
-          WeTile(iconPath: 'assets/images/ic_album.png', title: '相册', borderBottom: true,),
-          WeTile(iconPath: 'assets/images/ic_cards_wallet.png', title: '卡包', borderBottom: true,),
-          WeTile(iconPath: 'assets/images/ic_emotions.png', title: '表情', marginBottom: true),
+          WeTile(
+            iconPath: 'assets/images/ic_collections.png',
+            title: '收藏',
+            borderBottom: true,
+            onPressed: () {}
+          ),
+          WeTile(
+            iconPath: 'assets/images/ic_album.png',
+            title: '相册',
+            borderBottom: true,
+            onPressed: () {}
+          ),
+          WeTile(
+            iconPath: 'assets/images/ic_cards_wallet.png',
+            title: '卡包',
+            borderBottom: true,
+            onPressed: () {}
+          ),
+          WeTile(
+            iconPath: 'assets/images/ic_emotions.png',
+            title: '表情',
+            onPressed: () {}
+          ),
+          SizedBox(height: 10,),
 
-          WeTile(iconPath: 'assets/images/ic_settings.png', title: '设置', marginBottom: true,),
-
-
-
+          WeTile(
+            iconPath: 'assets/images/ic_settings.png',
+            title: '设置',
+            onPressed: () {}
+          ),
+          SizedBox(height: 10,),
         ],
       ),
     );
