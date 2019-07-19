@@ -69,9 +69,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('微信'),
+    AppBar _appBar;
+
+    if (_currentIndex <= 2) {
+      _appBar = AppBar(
+        title: Text(_bottomNavItems[_currentIndex].title, style: TextStyle(fontSize: 17.0),),
         elevation: 0.0,
         actions: <Widget>[
           IconButton(
@@ -106,7 +108,24 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(width: 10.0),
         ],
-      ),
+      );
+    } else {
+      _appBar = AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(IconFont.iconcamera, size: 20.0,),
+            onPressed: () {},
+          ),
+          SizedBox(width: 5.0,)
+        ],
+      );
+    }
+
+
+    return Scaffold(
+      appBar: _appBar,
       body: PageView.builder(
         itemBuilder: (BuildContext context, int index) {
           return _bottomNavItems[index].page;

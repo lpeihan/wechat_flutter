@@ -44,7 +44,7 @@ class ContactItem extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 height: ITEM_HEIGHT,
                 margin: EdgeInsets.only(left: 15.0),
-                child: Text(contact.name),
+                child: Text(contact.name, style: TextStyle(fontSize: 16.0),),
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(width: BORDER_WIDTH, color: Color(AppColors.borderColor))
