@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/pages/contact_page.dart';
@@ -69,6 +69,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.transparent,
+    ));
     AppBar _appBar;
 
     if (_currentIndex <= 2) {

@@ -18,7 +18,6 @@ class WeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return FlatButton(
       color: Colors.white,
       onPressed: onPressed,
