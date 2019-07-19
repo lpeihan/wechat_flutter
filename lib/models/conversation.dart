@@ -54,6 +54,16 @@ List<Conversation> conversations = [
     displayDot: false
   ),
   Conversation(
+    avatar: 'https://randomuser.me/api/portraits/men/14.jpg',
+    title: 'Tina Morgan',
+    titleColor: 0xff333333,
+    desc: '晚自习是什么来着？你知道吗，看到的话赶紧回复我',
+    updateAt: '17:01',
+    isMute: true,
+    unreadMsgCount: 0,
+    displayDot: false
+  ),
+  Conversation(
     avatar: 'assets/images/ic_fengchao.png',
     title: '蜂巢智能柜',
     titleColor: 0xff586b95,
@@ -61,16 +71,6 @@ List<Conversation> conversations = [
     isMute: false,
     updateAt: '17:12',
     unreadMsgCount: 0,
-    displayDot: false
-  ),
-  Conversation(
-    avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
-    title: 'Tina Morgan',
-    titleColor: 0xff333333,
-    desc: '晚自习是什么来着？你知道吗，看到的话赶紧回复我',
-    updateAt: '17:01',
-    isMute: true,
-    unreadMsgCount: 3,
     displayDot: false
   ),
   Conversation(
@@ -84,7 +84,7 @@ List<Conversation> conversations = [
     displayDot: false,
   ),
   Conversation(
-    avatar: 'https://randomuser.me/api/portraits/men/57.jpg',
+    avatar: 'https://randomuser.me/api/portraits/women/57.jpg',
     title: 'Lily',
     titleColor: 0xff333333,
     desc: '今天要去运动场锻炼吗？',
@@ -114,7 +114,7 @@ List<Conversation> conversations = [
     displayDot: false
   ),
   Conversation(
-    avatar: 'https://randomuser.me/api/portraits/women/57.jpg',
+    avatar: 'https://randomuser.me/api/portraits/women/59.jpg',
     title: '小美',
     titleColor: 0xff333333,
     desc: '今天要去运动场锻炼吗？',

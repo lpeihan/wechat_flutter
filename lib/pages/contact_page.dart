@@ -77,6 +77,7 @@ class _ContactPageState extends State<ContactPage> {
   final Map heightMap = { INDEX_LETTERS[0]: 0.0 };
   double tileHeight = 0;
   String currentLetter = INDEX_LETTERS[0];
+  String dragingLetter = '';
 
   List<Contact> topItems = [
     Contact(
@@ -168,6 +169,10 @@ class _ContactPageState extends State<ContactPage> {
 
     double pos = heightMap[INDEX_LETTERS[index]];
 
+    setState(() {
+      dragingLetter = INDEX_LETTERS[index];
+    });
+
     if (pos != null) {
       scrollTo(pos);
     }
@@ -219,10 +224,14 @@ class _ContactPageState extends State<ContactPage> {
               getPos(details.localPosition.dy);
             },
             onVerticalDragEnd: (DragEndDetails details) {
-              print('dragend');
+              setState(() {
+                dragingLetter = '';
+              });
             },
             onVerticalDragCancel: () {
-              print('dragcancel');
+              setState(() {
+                dragingLetter = '';
+              });
             },
             onVerticalDragUpdate: (DragUpdateDetails details) {
               getPos(details.localPosition.dy);
@@ -239,7 +248,19 @@ class _ContactPageState extends State<ContactPage> {
               }).toList(),
             ),
           )
-        )
+        ),
+        dragingLetter.length > 0 ? Center(
+          child: Container(
+            width: 114.0,
+            height: 114.0,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.black45,
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            ),
+            child: Text(dragingLetter, style: TextStyle(fontSize: 64.0, color: Colors.white),),
+          ),
+        ) : Container()
       ],
     );
   }
