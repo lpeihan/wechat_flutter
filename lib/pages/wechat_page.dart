@@ -5,7 +5,39 @@ import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/models/conversation.dart';
 
 class WechatPage extends StatelessWidget {
-  const WechatPage({Key key}) : super(key: key);
+  var tapPos;
+
+  WechatPage({Key key}) : super(key: key);
+
+  _showMenu(BuildContext context, Offset tapPos) {
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject();
+    final RelativeRect position = RelativeRect.fromLTRB(tapPos.dx, tapPos.dy,
+        overlay.size.width - tapPos.dx, overlay.size.height - tapPos.dy);
+
+    showMenu<String>(
+      context: context,
+      position: position,
+      items: <PopupMenuItem<String>>[
+        PopupMenuItem(
+          child: Text('标为未读'),
+          value: 'MENU_MARK_AS_UNREAD',
+        ),
+        PopupMenuItem(
+          child: Text('置顶聊天'),
+          value: 'MENU_PIN_TO_TOP',
+        ),
+        PopupMenuItem(
+          child: Text('删除该聊天'),
+          value: 'MENU_DELETE_CONVERSATION',
+        ),
+      ])
+      .then<String>((String selected) {
+        switch (selected) {
+          default:
+            print('当前选中的是：$selected');
+        }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +66,8 @@ class WechatPage extends StatelessWidget {
                     width: 10.0,
                     height: 10.0,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.red
-                    ),
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.red),
                   ),
                 )
               ],
@@ -54,10 +85,10 @@ class WechatPage extends StatelessWidget {
                     width: 18.0,
                     height: 18.0,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18.0),
-                      color: Colors.red
-                    ),
-                    child: Text(conversation.unreadMsgCount.toString(), style: TextStyle(color: Colors.white, fontSize: 12.0)),
+                        borderRadius: BorderRadius.circular(18.0),
+                        color: Colors.red),
+                    child: Text(conversation.unreadMsgCount.toString(),
+                        style: TextStyle(color: Colors.white, fontSize: 12.0)),
                   ),
                 )
               ],
@@ -68,20 +99,31 @@ class WechatPage extends StatelessWidget {
         }
 
         return InkWell(
-          onTap: () {},
+          onTap: () {
+            print(conversation.title);
+          },
+          onTapDown: (TapDownDetails details) {
+            tapPos = details.globalPosition;
+          },
+          onLongPress: () {
+            _showMenu(context, tapPos);
+          },
           child: Container(
             height: 80.0,
             padding: EdgeInsets.symmetric(horizontal: 12.0),
             child: Row(
               children: <Widget>[
                 _avatarContainer,
-                SizedBox(width: 12.0,),
+                SizedBox(
+                  width: 12.0,
+                ),
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(color: Color(AppColors.borderColor), width: 0.5)
-                    )),
+                        border: Border(
+                            bottom: BorderSide(
+                                color: Color(AppColors.borderColor),
+                                width: 0.5))),
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -89,18 +131,34 @@ class WechatPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text(conversation.title, style: TextStyle(fontSize: 17.0, color: Color(conversation.titleColor))),
+                              Text(conversation.title,
+                                  style: TextStyle(
+                                      fontSize: 17.0,
+                                      color: Color(conversation.titleColor))),
                               SizedBox(height: 6.0),
-                              Text(conversation.desc, style: TextStyle(color: Color(AppColors.textGreyColor)), maxLines: 1, overflow: TextOverflow.ellipsis,)
+                              Text(
+                                conversation.desc,
+                                style: TextStyle(
+                                    color: Color(AppColors.textGreyColor)),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              )
                             ],
                           ),
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(conversation.updateAt, style: TextStyle(color: Color(AppColors.textGreyColor),fontSize: 12.0)),
+                            Text(conversation.updateAt,
+                                style: TextStyle(
+                                    color: Color(AppColors.textGreyColor),
+                                    fontSize: 12.0)),
                             SizedBox(height: 12.0),
-                            Icon(IconFont.iconmute, color: conversation.isMute ? Color(AppColors.textGreyColor) : Colors.transparent, size: 16.0)
+                            Icon(IconFont.iconmute,
+                                color: conversation.isMute
+                                    ? Color(AppColors.textGreyColor)
+                                    : Colors.transparent,
+                                size: 16.0)
                           ],
                         )
                       ],
