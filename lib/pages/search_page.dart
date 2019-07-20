@@ -26,7 +26,7 @@ class _SearchPageState extends State<SearchPage> {
         title: Row(
           children: <Widget>[
             IconButton(
-              icon: Icon(IconFont.iconleft, size: 32.0,),
+              icon: Icon(IconFont.iconleft, size: 30.0, color: Color(0xff666666),),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -39,10 +39,10 @@ class _SearchPageState extends State<SearchPage> {
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
                   hintText: "搜索",
-                  hintStyle: TextStyle(fontSize: 16.0),
+                  hintStyle: TextStyle(fontSize: 17.0),
                   border: InputBorder.none,
                 ),
-                style: TextStyle(color: Color(AppColors.textColor), fontSize: 16.0),
+                style: TextStyle(color: Color(AppColors.textColor), fontSize: 17.0),
               ),
             )
           ],
@@ -54,13 +54,13 @@ class _SearchPageState extends State<SearchPage> {
         child: Column(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 30.0),
+              margin: EdgeInsets.only(top: 20.0),
               alignment: Alignment.center,
               width: double.infinity,
               child: Text('搜索指定内容', style: TextStyle(color: Color(AppColors.textGreyColor), fontSize: 16.0), ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 30.0),
+              margin: EdgeInsets.only(top: 35.0),
               padding: EdgeInsets.symmetric(horizontal: 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
