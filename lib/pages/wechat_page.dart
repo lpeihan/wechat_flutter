@@ -109,7 +109,7 @@ class WechatPage extends StatelessWidget {
             _showMenu(context, tapPos);
           },
           child: Container(
-            height: 80.0,
+            height: 72.0,
             padding: EdgeInsets.symmetric(horizontal: 12.0),
             child: Row(
               children: <Widget>[
