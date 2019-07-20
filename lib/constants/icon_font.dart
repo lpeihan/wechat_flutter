@@ -13,13 +13,14 @@ class IconFont {
 	static const IconData iconscancode = IconData(0xe620, fontFamily: _family);
 	static const IconData iconyuyin = IconData(0xe609, fontFamily: _family);
 	static const IconData iconprofile_active = IconData(0xe68f, fontFamily: _family);
+	static const IconData iconright = IconData(0xe6e5, fontFamily: _family);
+	static const IconData iconleft = IconData(0xe6e6, fontFamily: _family);
 	static const IconData iconmac = IconData(0xe60d, fontFamily: _family);
 	static const IconData iconfriends = IconData(0xe638, fontFamily: _family);
 	static const IconData iconmute = IconData(0xe658, fontFamily: _family);
 	static const IconData iconadd = IconData(0xe657, fontFamily: _family);
 	static const IconData iconpay = IconData(0xe62a, fontFamily: _family);
 	static const IconData iconcamera = IconData(0xe786, fontFamily: _family);
-	static const IconData iconright = IconData(0xe97a, fontFamily: _family);
 	static const IconData iconprofile = IconData(0xe687, fontFamily: _family);
 	static const IconData iconconcact_active = IconData(0xe60b, fontFamily: _family);
 	static const IconData iconconcact = IconData(0xe637, fontFamily: _family);

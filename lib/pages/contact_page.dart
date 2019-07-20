@@ -209,43 +209,44 @@ class _ContactPageState extends State<ContactPage> {
           width: 30.0,
           top: 20.0,
           key: indexBarKey,
-          
           right: 0.0,
           bottom: 20.0,
-          child: GestureDetector(
-            onVerticalDragDown: (DragDownDetails details) {
-              if (tileHeight == 0) {
-                RenderObject renderObject = indexBarKey.currentContext.findRenderObject();
+          child: Container(
+            child: GestureDetector(
+              onVerticalDragDown: (DragDownDetails details) {
+                if (tileHeight == 0) {
+                  RenderObject renderObject = indexBarKey.currentContext.findRenderObject();
 
-                double height = renderObject.semanticBounds.size.height;
-                tileHeight = height / INDEX_LETTERS.length;
-              }
+                  double height = renderObject.semanticBounds.size.height;
+                  tileHeight = height / INDEX_LETTERS.length;
+                }
 
-              getPos(details.localPosition.dy);
-            },
-            onVerticalDragEnd: (DragEndDetails details) {
-              setState(() {
-                dragingLetter = '';
-              });
-            },
-            onVerticalDragCancel: () {
-              setState(() {
-                dragingLetter = '';
-              });
-            },
-            onVerticalDragUpdate: (DragUpdateDetails details) {
-              getPos(details.localPosition.dy);
-            },
-            child: Column(
-              children: INDEX_LETTERS.map((String letter) {
-                return Expanded(
-                  child: Text(letter,
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      color: Color(currentLetter == letter ? AppColors.wechatColor : AppColors.textColor)
-                  ),),
-                );
-              }).toList(),
+                getPos(details.localPosition.dy);
+              },
+              onVerticalDragEnd: (DragEndDetails details) {
+                setState(() {
+                  dragingLetter = '';
+                });
+              },
+              onVerticalDragCancel: () {
+                setState(() {
+                  dragingLetter = '';
+                });
+              },
+              onVerticalDragUpdate: (DragUpdateDetails details) {
+                getPos(details.localPosition.dy);
+              },
+              child: Column(
+                children: INDEX_LETTERS.map((String letter) {
+                  return Expanded(
+                    child: Text(letter,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: Color(currentLetter == letter ? AppColors.wechatColor : AppColors.textColor)
+                    ),),
+                  );
+                }).toList(),
+              ),
             ),
           )
         ),
