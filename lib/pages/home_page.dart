@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:flutter_web/services.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/pages/contact_page.dart';
@@ -68,24 +69,29 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('微信'),
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.transparent,
+    ));
+    AppBar _appBar;
+
+    if (_currentIndex <= 2) {
+      _appBar = AppBar(
+        title: Text(_bottomNavItems[_currentIndex].title, style: TextStyle(fontSize: 17.0, color: Color(AppColors.textColor)),),
         elevation: 0.0,
         actions: <Widget>[
           IconButton(
-            icon: Icon(IconFont.iconsearch, size: 20.0),
+            icon: Icon(IconFont.iconsearch, size: 20.0, color: Color(AppColors.textColor)),
             onPressed: () {
               Navigator.of(context).pushNamed('/search');
             },
           ),
           SizedBox(width: 10.0),
           Theme(
-            data: ThemeData(cardColor: Color(AppColors.primaryColor)),
+            data: ThemeData(cardColor: Color(AppColors.primaryBackground)),
             child: PopupMenuButton(
               padding: EdgeInsets.all(0.0),
               offset: Offset(0, 150),
-              icon: Icon(IconFont.iconadd, size: 24.0, color: Colors.white,),
+              icon: Icon(IconFont.iconadd, size: 24.0),
               itemBuilder: (BuildContext context) {
                 return _popupMenuItems.map((_PopupMenuItem item) {
                   return PopupMenuItem(
@@ -105,7 +111,24 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(width: 10.0),
         ],
-      ),
+      );
+    } else {
+      _appBar = AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(IconFont.iconcamera, size: 20.0, color: Color(AppColors.textColor)),
+            onPressed: () {},
+          ),
+          SizedBox(width: 5.0,)
+        ],
+      );
+    }
+
+
+    return Scaffold(
+      appBar: _appBar,
       body: PageView.builder(
         itemBuilder: (BuildContext context, int index) {
           return _bottomNavItems[index].page;
@@ -130,6 +153,7 @@ class _HomePageState extends State<HomePage> {
         fixedColor: Color(AppColors.wechatColor),
         currentIndex: _currentIndex,
         selectedFontSize: 12.0,
+        elevation: 1.0,
         onTap: (index) {
           setState(() {
             _currentIndex = index;
