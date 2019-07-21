@@ -1,9 +1,6 @@
-.DS_Store
 .packages
-assets/.DS_Store
 assets/FontManifest.json
 assets/fonts/iconfont.ttf
-assets/images/.DS_Store
 assets/images/ad_game_notify.png
 assets/images/default_nor_avatar.png
 assets/images/ic_album.png
@@ -313,4 +310,3 @@ packages/pedantic/analysis_options.1.6.0.yaml
 packages/pedantic/analysis_options.1.7.0.yaml
 packages/pedantic/analysis_options.1.8.0.yaml
 packages/pedantic/analysis_options.yaml
-packages/wechat_flutter/.DS_Store
