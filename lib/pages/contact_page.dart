@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_web/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
@@ -221,7 +223,7 @@ class _ContactPageState extends State<ContactPage> {
                   tileHeight = height / INDEX_LETTERS.length;
                 }
 
-                getPos(details.globalPosition.dy);
+                // getPos(details.globalPosition.dy);
               },
               onVerticalDragEnd: (DragEndDetails details) {
                 setState(() {
@@ -234,16 +236,35 @@ class _ContactPageState extends State<ContactPage> {
                 });
               },
               onVerticalDragUpdate: (DragUpdateDetails details) {
-                getPos(details.globalPosition.dy);
+                // getPos(details.globalPosition.dy);
               },
               child: Column(
                 children: INDEX_LETTERS.map((String letter) {
                   return Expanded(
-                    child: Text(letter,
-                      style: TextStyle(
-                        fontSize: 12.0,
-                        color: Color(currentLetter == letter ? AppColors.wechatColor : AppColors.textColor)
-                    ),),
+                    child: InkWell(
+                      onTap: () {
+                        double pos = heightMap[letter];
+
+                        setState(() {
+                          dragingLetter = letter;
+                        });
+
+                        Timer(new Duration(microseconds: 300), () {
+                          setState(() {
+                            dragingLetter = '';
+                          });
+                        });
+
+                        if (pos != null) {
+                          scrollTo(pos);
+                        }
+                      },
+                      child: Text(letter,
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Color(currentLetter == letter ? AppColors.wechatColor : AppColors.textColor)
+                      ),),
+                    )
                   );
                 }).toList(),
               ),

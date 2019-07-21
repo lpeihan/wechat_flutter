@@ -39,11 +39,51 @@ class WechatPage extends StatelessWidget {
     });
   }
 
+  Widget _buildPcLogin() {
+    return FlatButton(
+      padding: EdgeInsets.symmetric(horizontal: 12.0),
+      color: Color(0xfff3f3f3),
+      onPressed: () {},
+      child: Container(
+        height: 50.0,
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Color(AppColors.borderColor), width: 0.5),
+            bottom: BorderSide(color: Color(AppColors.borderColor), width: 0.5),
+          ),
+        ),
+        child: Row(
+          children: <Widget>[
+            Container(
+              width: 48.0,
+              child: Icon(
+                IconFont.iconmac,
+                color: Color(0xff888888),
+                size: 22.0,
+              ),
+            ),
+            SizedBox(
+              width: 12.0,
+            ),
+            Text('Mac 微信已登录', style: TextStyle(color: Color(0xff888888)))
+          ],
+        ),
+      )
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: conversations.length,
+      itemCount: conversations.length + 1,
       itemBuilder: (BuildContext context, int index) {
+        if (index == 0) {
+          return _buildPcLogin();
+        }
+
+        index -= 1;
+
         Conversation conversation = conversations[index];
 
         Widget _avatar = WeImage(
