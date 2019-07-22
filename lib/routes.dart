@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wechat_flutter/pages/home_page.dart';
+import 'package:wechat_flutter/pages/home/home_page.dart';
 import 'package:wechat_flutter/pages/search/search_page.dart';
 
 final routes = {
