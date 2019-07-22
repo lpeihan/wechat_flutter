@@ -62,7 +62,9 @@ class ContactItem extends StatelessWidget {
     ));
 
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushNamed('/detail', arguments: { 'title': contact.name });
+      },
       child: Column(children: _buildWidget),
     );
   }

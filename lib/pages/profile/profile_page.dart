@@ -20,40 +20,47 @@ class ProfilePage extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 10.0),
             padding: EdgeInsets.only(left: 20, right: 12.0),
             height: 90.0,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                WeImage(image: userInfo.avatar, width: 60.0, height: 60.0,),
-                SizedBox(width: 15.0,),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(height: 4.0,),
-                      Text(userInfo.name, style: TextStyle(fontSize: 18.0),),
-                      SizedBox(height: 8.0,),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Container(
-                              child: Text('微信号: ${userInfo.account}', style: TextStyle(color: Color(AppColors.textGreyColor)),),
-                            )
-                          ),
-                          Icon(IconFont.iconscancode, size: 18.0, color: Color(AppColors.textGreyColor),),
-                          SizedBox(width: 5.0,),
-                          Icon(IconFont.iconright, color: Color(AppColors.textGreyColor))
-                        ],
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed('/detail', arguments: { 'title': '个人信息' });
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  WeImage(image: userInfo.avatar, width: 60.0, height: 60.0,),
+                  SizedBox(width: 15.0,),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(height: 4.0,),
+                        Text(userInfo.name, style: TextStyle(fontSize: 18.0),),
+                        SizedBox(height: 8.0,),
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Container(
+                                child: Text('微信号: ${userInfo.account}', style: TextStyle(color: Color(AppColors.textGreyColor)),),
+                              )
+                            ),
+                            Icon(IconFont.iconscancode, size: 18.0, color: Color(AppColors.textGreyColor),),
+                            SizedBox(width: 5.0,),
+                            Icon(IconFont.iconright, color: Color(AppColors.textGreyColor))
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
           ),
           WeTile(
             iconPath: 'assets/images/ic_wallet.png',
             title: '支付',
-            onPressed: () {}
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '支付' });
+            }
           ),
           SizedBox(height: 10,),
 
@@ -61,31 +68,41 @@ class ProfilePage extends StatelessWidget {
             iconPath: 'assets/images/ic_collections.png',
             title: '收藏',
             borderBottom: true,
-            onPressed: () {}
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '支付' });
+            }
           ),
           WeTile(
             iconPath: 'assets/images/ic_album.png',
             title: '相册',
             borderBottom: true,
-            onPressed: () {}
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '支付' });
+            }
           ),
           WeTile(
             iconPath: 'assets/images/ic_cards_wallet.png',
             title: '卡包',
             borderBottom: true,
-            onPressed: () {}
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '支付' });
+            }
           ),
           WeTile(
             iconPath: 'assets/images/ic_emotions.png',
             title: '表情',
-            onPressed: () {}
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '支付' });
+            }
           ),
           SizedBox(height: 10,),
 
           WeTile(
             iconPath: 'assets/images/ic_settings.png',
             title: '设置',
-            onPressed: () {}
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '支付' });
+            }
           ),
           SizedBox(height: 10,),
         ],

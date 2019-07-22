@@ -32,17 +32,28 @@ class ChatPage extends StatelessWidget {
           ),
         ]).then<String>((String selected) {
       switch (selected) {
+        case 'MENU_MARK_AS_UNREAD': 
+          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '标为未读' });
+          break;
+        case 'MENU_PIN_TO_TOP': 
+          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '置顶聊天' });
+          break;
+        case 'MENU_DELETE_CONVERSATION': 
+          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '删除该聊天' });
+          break;
         default:
           print('当前选中的是：$selected');
       }
     });
   }
 
-  Widget _buildPcLogin() {
+  Widget _buildPcLogin(BuildContext context) {
     return FlatButton(
       padding: EdgeInsets.symmetric(horizontal: 12.0),
       color: Color(0xfff3f3f3),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed('/detail', arguments: { 'title': 'Mac 已登录' });
+      },
       child: Container(
         height: 50.0,
         decoration: BoxDecoration(
@@ -77,7 +88,7 @@ class ChatPage extends StatelessWidget {
       itemCount: conversations.length + 1,
       itemBuilder: (BuildContext context, int index) {
         if (index == 0) {
-          return _buildPcLogin();
+          return _buildPcLogin(context);
         }
 
         index -= 1;
@@ -138,7 +149,7 @@ class ChatPage extends StatelessWidget {
 
         return InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed('/chat/detail', arguments: { 'title': conversation.title });
+            Navigator.of(context).pushNamed('/detail', arguments: { 'title': conversation.title });
           },
           onTapDown: (TapDownDetails details) {
             tapPos = details.globalPosition;
