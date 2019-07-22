@@ -11,3 +11,5 @@ webdev serve
 # production
 webdev build
 ```
+
+可以参考 https://github.com/flutter/flutter_web
