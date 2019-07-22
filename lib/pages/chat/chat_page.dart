@@ -149,7 +149,7 @@ class ChatPage extends StatelessWidget {
 
         return InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed('/detail', arguments: { 'title': conversation.title });
+            Navigator.of(context).pushNamed('/chat/detail', arguments: { 'title': conversation.title });
           },
           onTapDown: (TapDownDetails details) {
             tapPos = details.globalPosition;
@@ -159,7 +159,7 @@ class ChatPage extends StatelessWidget {
           },
           child: Container(
             height: 72.0,
-            padding: EdgeInsets.symmetric(horizontal: 12.0),
+            padding: EdgeInsets.only(left: 12.0),
             child: Row(
               children: <Widget>[
                 _avatarContainer,
@@ -209,7 +209,8 @@ class ChatPage extends StatelessWidget {
                                     : Colors.transparent,
                                 size: 16.0)
                           ],
-                        )
+                        ),
+                        SizedBox(width: 12.0,)
                       ],
                     ),
                   ),

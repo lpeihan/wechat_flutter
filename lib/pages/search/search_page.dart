@@ -35,7 +35,6 @@ class _SearchPageState extends State<SearchPage> {
               child: TextField(
                 autofocus: true,
                 cursorColor: Color(AppColors.wechatColor),
-                cursorWidth: 1.0,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
                   hintText: "搜索",
