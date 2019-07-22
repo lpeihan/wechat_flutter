@@ -2,7 +2,7 @@
 仿微信
 
 ## 预览
-![二维码]http://images.ipeihan.top/20190722214911.png)
+（![二维码]http://images.ipeihan.top/20190722214911.png)
 
 ## 使用
 ```shell
