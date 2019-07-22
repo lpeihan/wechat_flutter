@@ -4,10 +4,10 @@ import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/models/conversation.dart';
 
-class WechatPage extends StatelessWidget {
+class ChatPage extends StatelessWidget {
   var tapPos;
 
-  WechatPage({Key key}) : super(key: key);
+  ChatPage({Key key}) : super(key: key);
 
   _showMenu(BuildContext context, Offset tapPos) {
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
-import 'package:wechat_flutter/pages/contact_page.dart';
-import 'package:wechat_flutter/pages/discover_page.dart';
-import 'package:wechat_flutter/pages/profile_page.dart';
-import 'package:wechat_flutter/pages/wechat_page.dart';
+import 'package:wechat_flutter/pages/chat/chat_page.dart';
+import 'package:wechat_flutter/pages/contact/contact_page.dart';
+import 'package:wechat_flutter/pages/discover/discover_page.dart';
+import 'package:wechat_flutter/pages/profile/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
       icon: Icon(IconFont.iconmessage, size: 22.0),
       activeIcon: Icon(IconFont.iconmessage_active, size: 22.0),
       title: '微信',
-      page: WechatPage()
+      page: ChatPage()
     ),
     _BottomNavItem(
       icon: Icon(IconFont.iconconcact, size: 28.0,),
