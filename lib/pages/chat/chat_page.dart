@@ -2,12 +2,12 @@ import 'package:flutter_web/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
-import 'package:wechat_flutter/models/conversation.dart';
+import 'package:wechat_flutter/models/chat.dart';
 
-class WechatPage extends StatelessWidget {
+class ChatPage extends StatelessWidget {
   var tapPos;
 
-  WechatPage({Key key}) : super(key: key);
+  ChatPage({Key key}) : super(key: key);
 
   _showMenu(BuildContext context, Offset tapPos) {
     final RenderBox overlay = Overlay.of(context).context.findRenderObject();
@@ -15,35 +15,45 @@ class WechatPage extends StatelessWidget {
         overlay.size.width - tapPos.dx, overlay.size.height - tapPos.dy);
 
     showMenu<String>(
-      context: context,
-      position: position,
-      items: <PopupMenuItem<String>>[
-        PopupMenuItem(
-          child: Text('标为未读'),
-          value: 'MENU_MARK_AS_UNREAD',
-        ),
-        PopupMenuItem(
-          child: Text('置顶聊天'),
-          value: 'MENU_PIN_TO_TOP',
-        ),
-        PopupMenuItem(
-          child: Text('删除该聊天'),
-          value: 'MENU_DELETE_CONVERSATION',
-        ),
-      ])
-      .then<String>((String selected) {
-        switch (selected) {
-          default:
-            print('当前选中的是：$selected');
-        }
+        context: context,
+        position: position,
+        items: <PopupMenuItem<String>>[
+          PopupMenuItem(
+            child: Text('标为未读'),
+            value: 'MENU_MARK_AS_UNREAD',
+          ),
+          PopupMenuItem(
+            child: Text('置顶聊天'),
+            value: 'MENU_PIN_TO_TOP',
+          ),
+          PopupMenuItem(
+            child: Text('删除该聊天'),
+            value: 'MENU_DELETE_CONVERSATION',
+          ),
+        ]).then<String>((String selected) {
+      switch (selected) {
+        case 'MENU_MARK_AS_UNREAD': 
+          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '标为未读' });
+          break;
+        case 'MENU_PIN_TO_TOP': 
+          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '置顶聊天' });
+          break;
+        case 'MENU_DELETE_CONVERSATION': 
+          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '删除该聊天' });
+          break;
+        default:
+          print('当前选中的是：$selected');
+      }
     });
   }
 
-  Widget _buildPcLogin() {
+  Widget _buildPcLogin(BuildContext context) {
     return FlatButton(
       padding: EdgeInsets.symmetric(horizontal: 12.0),
       color: Color(0xfff3f3f3),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed('/detail', arguments: { 'title': 'Mac 已登录' });
+      },
       child: Container(
         height: 50.0,
         decoration: BoxDecoration(
@@ -68,10 +78,9 @@ class WechatPage extends StatelessWidget {
             Text('Mac 微信已登录', style: TextStyle(color: Color(0xff888888)))
           ],
         ),
-      )
+      ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +88,7 @@ class WechatPage extends StatelessWidget {
       itemCount: conversations.length + 1,
       itemBuilder: (BuildContext context, int index) {
         if (index == 0) {
-          return _buildPcLogin();
+          return _buildPcLogin(context);
         }
 
         index -= 1;
@@ -140,7 +149,7 @@ class WechatPage extends StatelessWidget {
 
         return InkWell(
           onTap: () {
-            print(conversation.title);
+            Navigator.of(context).pushNamed('/detail', arguments: { 'title': conversation.title });
           },
           onTapDown: (TapDownDetails details) {
             tapPos = details.globalPosition;

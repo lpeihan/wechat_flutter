@@ -26,7 +26,7 @@ class _SearchPageState extends State<SearchPage> {
         title: Row(
           children: <Widget>[
             IconButton(
-              icon: Icon(IconFont.iconleft, size: 30.0, color: Color(0xff666666),),
+              icon: Icon(IconFont.iconleft, size: 32.0),
               onPressed: () {
                 Navigator.of(context).pop();
               },
