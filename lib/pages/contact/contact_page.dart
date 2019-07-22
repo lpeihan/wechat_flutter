@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
-import 'package:wechat_flutter/models/contact.dart' show contacts, Contact, INDEX_LETTERS;
+import 'package:wechat_flutter/models/contact.dart'
+    show contacts, Contact, INDEX_LETTERS;
 
 const double TITLE_HEIGHT = 24;
 const double ITEM_HEIGHT = 64;
@@ -10,7 +11,8 @@ class ContactItem extends StatelessWidget {
   final bool isGroupTitle;
   final Contact contact;
 
-  const ContactItem({Key key, this.isGroupTitle, @required this.contact}) : super(key: key);
+  const ContactItem({Key key, this.isGroupTitle, @required this.contact})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,44 +25,45 @@ class ContactItem extends StatelessWidget {
           padding: EdgeInsets.only(left: 15.0),
           color: Color(AppColors.primaryColor),
           alignment: Alignment.centerLeft,
-          child: Text(contact.letter, style: TextStyle(fontSize: 12.0),),
+          child: Text(
+            contact.letter,
+            style: TextStyle(fontSize: 12.0),
+          ),
         ),
       );
     }
 
-    _buildWidget.add(
-      Container(
-        padding: EdgeInsets.only(left: 15.0),
-        child: Row(
-          children: <Widget>[
-            WeImage(
-              image: contact.avatar,
-              width: 42.0,
-              height: 42.0,
-            ),
-            Expanded(
-              child: Container(
-                alignment: Alignment.centerLeft,
-                height: ITEM_HEIGHT,
-                margin: EdgeInsets.only(left: 15.0),
-                child: Text(contact.name, style: TextStyle(fontSize: 16.0),),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(width: 0.5, color: Color(AppColors.borderColor))
-                  )
-                ),
+    _buildWidget.add(Container(
+      padding: EdgeInsets.only(left: 15.0),
+      child: Row(
+        children: <Widget>[
+          WeImage(
+            image: contact.avatar,
+            width: 42.0,
+            height: 42.0,
+          ),
+          Expanded(
+            child: Container(
+              alignment: Alignment.centerLeft,
+              height: ITEM_HEIGHT,
+              margin: EdgeInsets.only(left: 15.0),
+              child: Text(
+                contact.name,
+                style: TextStyle(fontSize: 16.0),
               ),
-            )
-          ],
-        ),
-      )
-    );
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                          width: 0.5, color: Color(AppColors.borderColor)))),
+            ),
+          )
+        ],
+      ),
+    ));
 
     return InkWell(
       onTap: () {},
-      child: Column(
-        children: _buildWidget
-      ),
+      child: Column(children: _buildWidget),
     );
   }
 }
@@ -74,7 +77,7 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   List<Contact> _contacts = [];
   ScrollController _scrollController = ScrollController();
-  final Map heightMap = { INDEX_LETTERS[0]: 0.0 };
+  final Map heightMap = {INDEX_LETTERS[0]: 0.0};
   double tileHeight = 0;
   String currentLetter = INDEX_LETTERS[0];
   String dragingLetter = '';
@@ -127,10 +130,9 @@ class _ContactPageState extends State<ContactPage> {
       }
 
       setState(() {
-        currentLetter =  nearLetter;
+        currentLetter = nearLetter;
       });
     });
-
   }
 
   @override
@@ -141,12 +143,13 @@ class _ContactPageState extends State<ContactPage> {
 
   initHeight() {
     double _totalHeight = 4 * ITEM_HEIGHT;
-  
-    for(int i = 0; i < _contacts.length; i++) {
+
+    for (int i = 0; i < _contacts.length; i++) {
       bool isGroupTitle = true;
       double height = ITEM_HEIGHT;
 
-      if (i >= 1 && _contacts[i].letter.compareTo(_contacts[i - 1].letter) == 0) {
+      if (i >= 1 &&
+          _contacts[i].letter.compareTo(_contacts[i - 1].letter) == 0) {
         isGroupTitle = false;
       }
 
@@ -161,7 +164,7 @@ class _ContactPageState extends State<ContactPage> {
 
   scrollTo(double pos) {
     _scrollController.animateTo(pos,
-      curve: Curves.easeOut, duration: Duration(milliseconds: 200));
+        curve: Curves.easeOut, duration: Duration(milliseconds: 200));
   }
 
   getPos(dy) {
@@ -206,62 +209,76 @@ class _ContactPageState extends State<ContactPage> {
           },
         ),
         Positioned(
-          width: 30.0,
-          top: 20.0,
-          key: indexBarKey,
-          right: 0.0,
-          bottom: 20.0,
-          child: Container(
-            child: GestureDetector(
-              onVerticalDragDown: (DragDownDetails details) {
-                if (tileHeight == 0) {
-                  RenderObject renderObject = indexBarKey.currentContext.findRenderObject();
+            width: 30.0,
+            top: 20.0,
+            // key: indexBarKey,
+            right: 0.0,
+            bottom: 20.0,
+            child: Container(child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+              return GestureDetector(
+                onVerticalDragDown: (DragDownDetails details) {
+                  // RenderObject renderObject = indexBarKey.currentContext.findRenderObject();
+                  RenderBox renderObject = context.findRenderObject();
+                  if (tileHeight == 0) {
+                    double height = renderObject.semanticBounds.size.height;
+                    tileHeight = height / INDEX_LETTERS.length;
+                  }
 
-                  double height = renderObject.semanticBounds.size.height;
-                  tileHeight = height / INDEX_LETTERS.length;
-                }
+                  var localPostion =
+                      renderObject.globalToLocal(details.globalPosition);
 
-                getPos(details.localPosition.dy);
-              },
-              onVerticalDragEnd: (DragEndDetails details) {
-                setState(() {
-                  dragingLetter = '';
-                });
-              },
-              onVerticalDragCancel: () {
-                setState(() {
-                  dragingLetter = '';
-                });
-              },
-              onVerticalDragUpdate: (DragUpdateDetails details) {
-                getPos(details.localPosition.dy);
-              },
-              child: Column(
-                children: INDEX_LETTERS.map((String letter) {
-                  return Expanded(
-                    child: Text(letter,
-                      style: TextStyle(
-                        fontSize: 12.0,
-                        color: Color(currentLetter == letter ? AppColors.wechatColor : AppColors.textColor)
-                    ),),
-                  );
-                }).toList(),
-              ),
-            ),
-          )
-        ),
-        dragingLetter.length > 0 ? Center(
-          child: Container(
-            width: 114.0,
-            height: 114.0,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: Colors.black45,
-              borderRadius: BorderRadius.all(Radius.circular(5.0)),
-            ),
-            child: Text(dragingLetter, style: TextStyle(fontSize: 64.0, color: Colors.white),),
-          ),
-        ) : Container()
+                  getPos(localPostion.dy);
+                },
+                onVerticalDragEnd: (DragEndDetails details) {
+                  setState(() {
+                    dragingLetter = '';
+                  });
+                },
+                onVerticalDragCancel: () {
+                  setState(() {
+                    dragingLetter = '';
+                  });
+                },
+                onVerticalDragUpdate: (DragUpdateDetails details) {
+                  RenderBox renderObject = context.findRenderObject();
+                  var localPostion = renderObject.globalToLocal(details.globalPosition);
+
+                  getPos(localPostion.dy);
+                },
+                child: Column(
+                  children: INDEX_LETTERS.map((String letter) {
+                    return Expanded(
+                      child: Text(
+                        letter,
+                        style: TextStyle(
+                            fontSize: 12.0,
+                            color: Color(currentLetter == letter
+                                ? AppColors.wechatColor
+                                : AppColors.textColor)),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              );
+            }))),
+        dragingLetter.length > 0
+            ? Center(
+                child: Container(
+                  width: 114.0,
+                  height: 114.0,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.black45,
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  ),
+                  child: Text(
+                    dragingLetter,
+                    style: TextStyle(fontSize: 64.0, color: Colors.white),
+                  ),
+                ),
+              )
+            : Container()
       ],
     );
   }
