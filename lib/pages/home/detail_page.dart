@@ -1,20 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 
 class DetailPage extends StatelessWidget {
   final Map arguments;
   const DetailPage({Key key, this.arguments}) : super(key: key);
-
-  _launchURL(url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +28,9 @@ class DetailPage extends StatelessWidget {
           children: <Widget>[
             Text('功能正在开发中，具体请关注', style: TextStyle(fontSize: 16.0),),
             SizedBox(height: 20.0,),
-            InkWell(
-              child: Image.asset('assets/images/github.png', width: 50,),
-              onTap: () {
-                _launchURL('https://github.com/lpeihan/wechat_flutter');
-              },
-            )
+            Image.asset('assets/images/github.png', width: 50,),
+            SizedBox(height: 20.0,),
+            Text('https://github.com/lpeihan/wechat_flutter')
           ],
         )
       ),

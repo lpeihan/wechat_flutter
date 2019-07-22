@@ -151,7 +151,9 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(IconFont.iconcamera, size: 20.0,),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '相机' });
+            },
           ),
           SizedBox(width: 5.0,)
         ],

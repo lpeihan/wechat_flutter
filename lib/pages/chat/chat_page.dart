@@ -115,7 +115,7 @@ class ChatPage extends StatelessWidget {
                     width: 10.0,
                     height: 10.0,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(5.0),
                         color: Colors.red),
                   ),
                 )
@@ -134,7 +134,7 @@ class ChatPage extends StatelessWidget {
                     width: 18.0,
                     height: 18.0,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18.0),
+                        borderRadius: BorderRadius.circular(9.0),
                         color: Colors.red),
                     child: Text(conversation.unreadMsgCount.toString(),
                         style: TextStyle(color: Colors.white, fontSize: 12.0)),
