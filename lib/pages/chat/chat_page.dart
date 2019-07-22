@@ -138,7 +138,7 @@ class ChatPage extends StatelessWidget {
 
         return InkWell(
           onTap: () {
-            print(conversation.title);
+            Navigator.of(context).pushNamed('/chat/detail', arguments: { 'title': conversation.title });
           },
           onTapDown: (TapDownDetails details) {
             tapPos = details.globalPosition;
