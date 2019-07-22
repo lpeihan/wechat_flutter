@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
-import 'package:wechat_flutter/models/contacts.dart' show contacts, Contact, INDEX_LETTERS;
+import 'package:wechat_flutter/models/contact.dart' show contacts, Contact, INDEX_LETTERS;
 
 const double TITLE_HEIGHT = 24;
 const double ITEM_HEIGHT = 64;

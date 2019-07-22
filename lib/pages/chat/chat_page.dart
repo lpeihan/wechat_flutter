@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
-import 'package:wechat_flutter/models/conversation.dart';
+import 'package:wechat_flutter/models/chat.dart';
 
 class ChatPage extends StatelessWidget {
   var tapPos;
