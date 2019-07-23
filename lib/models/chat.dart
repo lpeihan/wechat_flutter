@@ -38,7 +38,8 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '[应用消息]',
-        'updateAt': '20:56'
+        'updateAt': '20:56',
+        'self': false
       }
     ]
   ),
@@ -55,7 +56,8 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '豪车与出租车刮擦 俩车主划拳定责',
-        'updateAt': '18:20'
+        'updateAt': '18:20',
+        'self': false
       }
     ]
   ),
@@ -72,7 +74,8 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '😃今晚要一起去吃肯德基吗？',
-        'updateAt': '17:56'
+        'updateAt': '17:56',
+        'self': false
       }
     ]
   ),
@@ -89,12 +92,14 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '在吗',
-        'updateAt': '17:00'
+        'updateAt': '17:00',
+        'self': false
       },
       {
         'avatar': '',
         'content': '晚自习是什么来着？你知道吗，看到的话赶紧回复我',
-        'updateAt': ''
+        'updateAt': '',
+        'self': false
       }
     ]
   ),
@@ -111,7 +116,8 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '喷一喷，竟比洗牙还神奇！5秒钟还你一个漂亮洁白的口腔。',
-        'updateAt': '17:12'
+        'updateAt': '17:12',
+        'self': false,
       }
     ]
   ),
@@ -128,6 +134,7 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '5元现金助力开学季！',
+        'self': false,
         'updateAt': '16:48'
       }
     ]
@@ -145,66 +152,79 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': '昨天'
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': ''
       },
     ]
@@ -222,6 +242,7 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '我通过了你的朋友验证请求，现在我们可以开始聊天了',
+        'self': false,
         'updateAt': '昨天'
       }
     ]
@@ -239,16 +260,19 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '你忙好了吗',
+        'self': false,
         'updateAt': '昨天'
       },
       {
         'avatar': '',
         'content': '要直播吗要直播吗要直播吗要直播吗',
+        'self': false,
         'updateAt': ''
       },
       {
         'avatar': '',
         'content': '那我先去洗澡了',
+        'self': false,
         'updateAt': ''
       }
     ]
@@ -266,6 +290,7 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
+        'self': false,
         'updateAt': '昨天'
       }
     ]
@@ -283,6 +308,7 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '代码写完提交了，你有空验收一下',
+        'self': false,
         'updateAt': '昨天'
       }
     ]
@@ -300,7 +326,8 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '今天和我一起回家吗',
-        'updateAt': '周三'
+        'updateAt': '周三',
+        'self': false
       }
     ]
   ),
@@ -317,6 +344,7 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '明天请你看电影，不见不散',
+        'self': false,
         'updateAt': '17月12号'
       }
     ]
