@@ -170,9 +170,21 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   String currentText = '';
   TextEditingController inputController = TextEditingController();
   ScrollController _scrollController = ScrollController();
+  FocusNode focusNode = FocusNode();
 
   _hideKeyBoard() {
     FocusScope.of(context).requestFocus(FocusNode());
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+      }
+    });
+
   }
 
   @override
@@ -243,6 +255,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   },
                   controller: inputController,
                   cursorColor: Color(AppColors.wechatColor),
+                  focusNode: focusNode,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(9.0),
                     hintStyle: TextStyle(fontSize: 17.0),
@@ -290,7 +303,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                             inputController.text = '';
                           });
 
-                          _scrollController.animateTo(_scrollController.position.maxScrollExtent + 55.0, curve: Curves.easeOut, duration: Duration(milliseconds: 200));
+                          _scrollController.animateTo(_scrollController.position.maxScrollExtent, curve: Curves.easeOut, duration: Duration(milliseconds: 200));
                         },
                       ),
                     )
