@@ -1,8 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/models/chat.dart';
+import 'package:wechat_flutter/pages/chat/chat_detail_page.dart';
 
 class ChatPage extends StatelessWidget {
   var tapPos;
@@ -149,9 +151,14 @@ class ChatPage extends StatelessWidget {
 
         return InkWell(
           onTap: () {
-            Navigator.of(context).pushNamed('/chat/detail',
-              arguments: { 'title': conversation.title, 'index': index }
-            );
+            // Navigator.of(context).pushNamed('/chat/detail',
+            //   arguments: { 'title': conversation.title, 'index': index }
+            // );
+            Navigator.push(context, CupertinoPageRoute(
+              builder: (context) {
+                return ChatDetailPage(arguments: { 'title': conversation.title, 'index': index }); //路由B
+              }
+            ));
           },
           onTapDown: (TapDownDetails details) {
             tapPos = details.globalPosition;
