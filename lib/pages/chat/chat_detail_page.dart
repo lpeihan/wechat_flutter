@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
@@ -165,6 +167,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   TextEditingController inputController = TextEditingController();
   ScrollController _scrollController = ScrollController();
   FocusNode focusNode = FocusNode();
+  bool hasFocus = false;
 
   _hideKeyBoard() {
     FocusScope.of(context).requestFocus(FocusNode());
@@ -175,10 +178,21 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     super.initState();
 
     focusNode.addListener(() {
+      setState(() {
+        hasFocus = focusNode.hasFocus;
+      });
+
       if (focusNode.hasFocus) {
+        Timer(Duration(milliseconds: 300), () {
+          scrollToBottom(offset: 55.0);
+        });
       }
     });
+  }
 
+  scrollToBottom({ offset = 0 }) {
+    _scrollController.animateTo(_scrollController.position.maxScrollExtent - offset,
+        curve: Curves.easeOut, duration: Duration(milliseconds: 200));
   }
 
   @override
@@ -210,30 +224,38 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   _hideKeyBoard();
                 },
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0),
-                  decoration: BoxDecoration(
-                    border: Border(
-                        top: BorderSide(
-                            color: AppColors.borderColor, width: 0.5)),
-                    color: AppColors.primaryColor,
-                  ),
-                  child: ListView(
-                      controller: _scrollController,
-                      children: conversation.messages.map((message) {
+                    padding: EdgeInsets.symmetric(horizontal: 12.0),
+                    decoration: BoxDecoration(
+                      border: Border(
+                          top: BorderSide(
+                              color: AppColors.borderColor, width: 0.5)),
+                      color: AppColors.primaryColor,
+                    ),
+                    child: ListView.builder(
+                      itemBuilder: (BuildContext context, int index) {
+                        // 弹起键盘底部的输入框会挡住聊天内容
+                        if (index == conversation.messages.length) {
+                          return Container(
+                            height: hasFocus ? 55.0 : 0.0,
+                          );
+                        }
+                        Map message = conversation.messages[index];
+
                         return message['self']
                             ? SelfChatBox(
                                 conversation: conversation, message: message)
                             : ChatBox(
                                 conversation: conversation, message: message);
-                      }).toList()),
-                ))),
+                      },
+                      itemCount: conversation.messages.length + 1,
+                      controller: _scrollController,
+                    )))),
         Container(
           height: 55.0,
           decoration: BoxDecoration(
               color: Color(0xfff8f8f8),
               border: Border(
-                  top: BorderSide(
-                      color: AppColors.borderColor, width: 0.5))),
+                  top: BorderSide(color: AppColors.borderColor, width: 0.5))),
           child: Row(
             children: <Widget>[
               IconButton(
@@ -260,8 +282,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     fillColor: Colors.white,
                     filled: true,
                   ),
-                  style: TextStyle(
-                      color: AppColors.grey1, fontSize: 17.0),
+                  style: TextStyle(color: AppColors.grey1, fontSize: 17.0),
                 ),
               ),
               InkWell(
@@ -298,7 +319,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                             inputController.text = '';
                           });
 
-                          _scrollController.animateTo(_scrollController.position.maxScrollExtent, curve: Curves.easeOut, duration: Duration(milliseconds: 200));
+                          scrollToBottom();
                         },
                       ),
                     )
