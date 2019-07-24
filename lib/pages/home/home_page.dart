@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(width: 10.0),
           Theme(
-            data: ThemeData(cardColor: Color(AppColors.primaryBackground)),
+            data: ThemeData(cardColor: AppColors.grey0),
             child: PopupMenuButton(
               onSelected: (val) {
                 String title = '';
@@ -151,7 +151,9 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(IconFont.iconcamera, size: 20.0,),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed('/detail', arguments: { 'title': '相机' });
+            },
           ),
           SizedBox(width: 5.0,)
         ],
@@ -182,7 +184,7 @@ class _HomePageState extends State<HomePage> {
           );
         }).toList(),
         type: BottomNavigationBarType.fixed,
-        fixedColor: Color(AppColors.wechatColor),
+        fixedColor: AppColors.primayGreen,
         currentIndex: _currentIndex,
         selectedFontSize: 12.0,
         onTap: (index) {

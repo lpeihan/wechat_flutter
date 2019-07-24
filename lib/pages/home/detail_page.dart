@@ -1,5 +1,4 @@
 import 'package:flutter_web/material.dart';
-import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 
 class DetailPage extends StatelessWidget {
@@ -29,9 +28,9 @@ class DetailPage extends StatelessWidget {
           children: <Widget>[
             Text('功能正在开发中，具体请关注', style: TextStyle(fontSize: 16.0),),
             SizedBox(height: 20.0,),
-            Image.asset('images/github.png', width: 40,),
+            Image.asset('images/github.png', width: 50,),
             SizedBox(height: 20.0,),
-            Text('https://github.com/lpeihan/wechat_flutter'),
+            Text('https://github.com/lpeihan/wechat_flutter')
           ],
         )
       ),

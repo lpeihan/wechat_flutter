@@ -8,7 +8,7 @@ class DiscoverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      color: Color(AppColors.primaryColor),
+      color: AppColors.primaryColor,
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[

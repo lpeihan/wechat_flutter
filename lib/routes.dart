@@ -1,3 +1,4 @@
+import 'package:flutter_web/cupertino.dart';
 import 'package:flutter_web/material.dart';
 import 'package:wechat_flutter/pages/chat/chat_detail_page.dart';
 import 'package:wechat_flutter/pages/home/detail_page.dart';
@@ -18,11 +19,11 @@ var onGenerateRoute = (RouteSettings settings) {
     Route route;
   
     if (settings.arguments != null) {
-      route = MaterialPageRoute(
+      route = CupertinoPageRoute(
         builder: (context) => pageBuilder(context, arguments: settings.arguments)
       );
     } else {
-      route = MaterialPageRoute(
+      route = CupertinoPageRoute(
         builder: (context) => pageBuilder(context)
       );
     }
