@@ -23,7 +23,7 @@ class ContactItem extends StatelessWidget {
         Container(
           height: TITLE_HEIGHT,
           padding: EdgeInsets.only(left: 15.0),
-          color: Color(AppColors.primaryColor),
+          color: AppColors.primaryColor,
           alignment: Alignment.centerLeft,
           child: Text(
             contact.letter,
@@ -54,7 +54,7 @@ class ContactItem extends StatelessWidget {
               decoration: BoxDecoration(
                   border: Border(
                       bottom: BorderSide(
-                          width: 0.5, color: Color(AppColors.borderColor)))),
+                          width: 0.5, color: AppColors.borderColor))),
             ),
           )
         ],
@@ -255,9 +255,9 @@ class _ContactPageState extends State<ContactPage> {
                         letter,
                         style: TextStyle(
                             fontSize: 12.0,
-                            color: Color(currentLetter == letter
-                                ? AppColors.wechatColor
-                                : AppColors.textColor)),
+                            color: currentLetter == letter
+                                ? AppColors.primaryColor
+                                : AppColors.grey1),
                       ),
                     );
                   }).toList(),

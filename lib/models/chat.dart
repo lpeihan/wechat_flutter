@@ -100,6 +100,12 @@ List<Conversation> conversations = [
         'content': '晚自习是什么来着？你知道吗，看到的话赶紧回复我',
         'updateAt': '',
         'self': false
+      },
+      {
+        'avatar': '',
+        'content': '五年高考，三年模拟',
+        'updateAt': '18:12',
+        'self': true
       }
     ]
   ),

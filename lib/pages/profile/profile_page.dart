@@ -11,7 +11,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(AppColors.primaryColor),
+      color: AppColors.primaryColor,
       child: ListView(
         children: <Widget>[
           Container(
@@ -40,12 +40,12 @@ class ProfilePage extends StatelessWidget {
                           children: <Widget>[
                             Expanded(
                               child: Container(
-                                child: Text('微信号: ${userInfo.account}', style: TextStyle(color: Color(AppColors.textGreyColor)),),
+                                child: Text('微信号: ${userInfo.account}', style: TextStyle(color: AppColors.grey3),),
                               )
                             ),
-                            Icon(IconFont.iconscancode, size: 18.0, color: Color(AppColors.textGreyColor),),
+                            Icon(IconFont.iconscancode, size: 18.0, color: AppColors.grey3,),
                             SizedBox(width: 5.0,),
-                            Icon(IconFont.iconright, color: Color(AppColors.textGreyColor))
+                            Icon(IconFont.iconright, color: AppColors.grey3)
                           ],
                         ),
                       ],

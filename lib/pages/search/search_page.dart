@@ -13,7 +13,7 @@ class _SearchPageState extends State<SearchPage> {
     return Container(
       width: 100.0,
       alignment: Alignment.center,
-      child: Text(name, style: TextStyle(color: Color(AppColors.blue), fontSize: 15.0)),
+      child: Text(name, style: TextStyle(color: AppColors.textBlue, fontSize: 15.0)),
     );
   }
 
@@ -34,14 +34,14 @@ class _SearchPageState extends State<SearchPage> {
             Expanded(
               child: TextField(
                 autofocus: true,
-                cursorColor: Color(AppColors.wechatColor),
+                cursorColor: AppColors.primayGreen,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
                   hintText: "搜索",
                   hintStyle: TextStyle(fontSize: 17.0),
                   border: InputBorder.none,
                 ),
-                style: TextStyle(color: Color(AppColors.textColor), fontSize: 17.0),
+                style: TextStyle(color: AppColors.grey1, fontSize: 17.0),
               ),
             )
           ],
@@ -49,14 +49,14 @@ class _SearchPageState extends State<SearchPage> {
         elevation: 0.0,
       ),
       body: Container(
-        color: Color(AppColors.primaryColor),
+        color: AppColors.primaryColor,
         child: Column(
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(top: 20.0),
               alignment: Alignment.center,
               width: double.infinity,
-              child: Text('搜索指定内容', style: TextStyle(color: Color(AppColors.textGreyColor), fontSize: 16.0), ),
+              child: Text('搜索指定内容', style: TextStyle(color: AppColors.grey3, fontSize: 16.0), ),
             ),
             Container(
               margin: EdgeInsets.only(top: 35.0),

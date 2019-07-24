@@ -188,6 +188,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
+        centerTitle: true,
         title: Text(
           conversation.title,
           style: TextStyle(fontSize: 18.0),
@@ -213,8 +214,8 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   decoration: BoxDecoration(
                     border: Border(
                         top: BorderSide(
-                            color: Color(AppColors.borderColor), width: 0.5)),
-                    color: Color(AppColors.primaryColor),
+                            color: AppColors.borderColor, width: 0.5)),
+                    color: AppColors.primaryColor,
                   ),
                   child: ListView(
                       controller: _scrollController,
@@ -232,7 +233,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
               color: Color(0xfff8f8f8),
               border: Border(
                   top: BorderSide(
-                      color: Color(AppColors.borderColor), width: 0.5))),
+                      color: AppColors.borderColor, width: 0.5))),
           child: Row(
             children: <Widget>[
               IconButton(
@@ -248,7 +249,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     });
                   },
                   controller: inputController,
-                  cursorColor: Color(AppColors.wechatColor),
+                  cursorColor: AppColors.primayGreen,
                   focusNode: focusNode,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(9.0),
@@ -260,7 +261,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     filled: true,
                   ),
                   style: TextStyle(
-                      color: Color(AppColors.textColor), fontSize: 17.0),
+                      color: AppColors.grey1, fontSize: 17.0),
                 ),
               ),
               InkWell(
@@ -282,7 +283,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                           '发送',
                           style: TextStyle(color: Colors.white, fontSize: 15.0),
                         ),
-                        color: Color(AppColors.wechatColor),
+                        color: AppColors.primayGreen,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(3.0)),
                         onPressed: () {

@@ -31,14 +31,14 @@ class WeTile extends StatelessWidget {
               child: Container(
                 height: 54.0,
                 decoration: BoxDecoration(
-                  border: borderBottom ? Border(bottom: BorderSide(width: 0.5, color: Color(AppColors.borderColor))) : Border()
+                  border: borderBottom ? Border(bottom: BorderSide(width: 0.5, color: AppColors.borderColor)) : Border()
                 ),
                 child: Row(
                   children: <Widget>[
                     Expanded(
                       child: Text(title, style: TextStyle(fontSize: 16.0),),
                     ),
-                    Icon(IconFont.iconright, color: Color(AppColors.textGreyColor)),
+                    Icon(IconFont.iconright, color: AppColors.grey3),
                     SizedBox(width: 12.0,)
                   ],
                 )

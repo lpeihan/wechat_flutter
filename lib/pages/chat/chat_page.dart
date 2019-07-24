@@ -34,14 +34,17 @@ class ChatPage extends StatelessWidget {
           ),
         ]).then<String>((String selected) {
       switch (selected) {
-        case 'MENU_MARK_AS_UNREAD': 
-          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '标为未读' });
+        case 'MENU_MARK_AS_UNREAD':
+          Navigator.of(context)
+              .pushNamed('/detail', arguments: {'title': '标为未读'});
           break;
-        case 'MENU_PIN_TO_TOP': 
-          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '置顶聊天' });
+        case 'MENU_PIN_TO_TOP':
+          Navigator.of(context)
+              .pushNamed('/detail', arguments: {'title': '置顶聊天'});
           break;
-        case 'MENU_DELETE_CONVERSATION': 
-          Navigator.of(context).pushNamed('/detail', arguments: { 'title': '删除该聊天' });
+        case 'MENU_DELETE_CONVERSATION':
+          Navigator.of(context)
+              .pushNamed('/detail', arguments: {'title': '删除该聊天'});
           break;
         default:
           print('当前选中的是：$selected');
@@ -54,14 +57,15 @@ class ChatPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12.0),
       color: Color(0xfff3f3f3),
       onPressed: () {
-        Navigator.of(context).pushNamed('/detail', arguments: { 'title': 'Mac 已登录' });
+        Navigator.of(context)
+            .pushNamed('/detail', arguments: {'title': 'Mac 已登录'});
       },
       child: Container(
         height: 50.0,
         decoration: BoxDecoration(
           border: Border(
-            top: BorderSide(color: Color(AppColors.borderColor), width: 0.5),
-            bottom: BorderSide(color: Color(AppColors.borderColor), width: 0.5),
+            top: BorderSide(color: AppColors.borderColor, width: 0.5),
+            bottom: BorderSide(color: AppColors.borderColor, width: 0.5),
           ),
         ),
         child: Row(
@@ -152,8 +156,7 @@ class ChatPage extends StatelessWidget {
         return InkWell(
           onTap: () {
             Navigator.of(context).pushNamed('/chat/detail',
-              arguments: { 'title': conversation.title, 'index': index }
-            );
+                arguments: {'title': conversation.title, 'index': index});
           },
           onTapDown: (TapDownDetails details) {
             tapPos = details.globalPosition;
@@ -175,8 +178,7 @@ class ChatPage extends StatelessWidget {
                     decoration: BoxDecoration(
                         border: Border(
                             bottom: BorderSide(
-                                color: Color(AppColors.borderColor),
-                                width: 0.5))),
+                                color: AppColors.borderColor, width: 0.5))),
                     child: Row(
                       children: <Widget>[
                         Expanded(
@@ -191,8 +193,7 @@ class ChatPage extends StatelessWidget {
                               SizedBox(height: 6.0),
                               Text(
                                 conversation.desc,
-                                style: TextStyle(
-                                    color: Color(AppColors.textGreyColor)),
+                                style: TextStyle(color: AppColors.grey3),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               )
@@ -204,17 +205,18 @@ class ChatPage extends StatelessWidget {
                           children: <Widget>[
                             Text(conversation.updateAt,
                                 style: TextStyle(
-                                    color: Color(AppColors.textGreyColor),
-                                    fontSize: 12.0)),
+                                    color: AppColors.grey3, fontSize: 12.0)),
                             SizedBox(height: 12.0),
                             Icon(IconFont.iconmute,
                                 color: conversation.isMute
-                                    ? Color(AppColors.textGreyColor)
+                                    ? AppColors.grey3
                                     : Colors.transparent,
                                 size: 16.0)
                           ],
                         ),
-                        SizedBox(width: 12.0,)
+                        SizedBox(
+                          width: 12.0,
+                        )
                       ],
                     ),
                   ),

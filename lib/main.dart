@@ -12,7 +12,7 @@ class Wechat extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Color(AppColors.primaryColor)
+        primaryColor: AppColors.primaryColor
       ),
 
       initialRoute: '/',
