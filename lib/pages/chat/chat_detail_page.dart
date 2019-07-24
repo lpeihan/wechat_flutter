@@ -44,15 +44,12 @@ class ChatBox extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    SizedBox(
-                      height: 1.0,
-                    ),
                     Stack(
                       overflow: Overflow.visible,
                       children: <Widget>[
                         Container(
                           padding: EdgeInsets.all(10.0),
-                          margin: EdgeInsets.only(right: 52.0),
+                          margin: EdgeInsets.only(right: 50.0),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(5.0)),
@@ -63,7 +60,7 @@ class ChatBox extends StatelessWidget {
                         ),
                         Positioned(
                           left: -10.0,
-                          top: 12.0,
+                          top: 11.0,
                           child: Icon(
                             IconFont.iconleft_s,
                             size: 16.0,
@@ -113,17 +110,14 @@ class SelfChatBox extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    SizedBox(
-                      height: 1.0,
-                    ),
                     Stack(
                       overflow: Overflow.visible,
                       children: <Widget>[
                         Container(
                           padding: EdgeInsets.all(10.0),
-                          margin: EdgeInsets.only(left: 52.0),
+                          margin: EdgeInsets.only(left: 50.0),
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Color(0xff9eec77),
                               borderRadius: BorderRadius.circular(5.0)),
                           child: Text(
                             message['content'],
@@ -132,11 +126,11 @@ class SelfChatBox extends StatelessWidget {
                         ),
                         Positioned(
                           right: -10.0,
-                          top: 12.0,
+                          top: 11.0,
                           child: Icon(
                             IconFont.iconright_s,
                             size: 16.0,
-                            color: Colors.white,
+                            color: Color(0xff9eec77),
                           ),
                         )
                       ],
