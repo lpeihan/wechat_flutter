@@ -183,7 +183,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
       });
 
       if (focusNode.hasFocus) {
-        Timer(Duration(milliseconds: 300), () {
+        Timer(Duration(milliseconds: 150), () {
           scrollToBottom(offset: 55.0);
         });
       }
