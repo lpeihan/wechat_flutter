@@ -162,12 +162,17 @@ class ChatDetailPage extends StatefulWidget {
   _ChatDetailPageState createState() => _ChatDetailPageState();
 }
 
-class _ChatDetailPageState extends State<ChatDetailPage> {
+class _ChatDetailPageState extends State<ChatDetailPage>
+    with TickerProviderStateMixin {
   String currentText = '';
   TextEditingController inputController = TextEditingController();
   ScrollController _scrollController = ScrollController();
   FocusNode focusNode = FocusNode();
   bool hasFocus = false;
+  AnimationController sendButtonController;
+  Animation sendButtonAnimationSize;
+  Animation sendButtonAnimationFontSize;
+  CurvedAnimation curve;
 
   _hideKeyBoard() {
     FocusScope.of(context).requestFocus(FocusNode());
@@ -176,6 +181,24 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   @override
   void initState() {
     super.initState();
+
+    sendButtonController =
+        AnimationController(duration: Duration(milliseconds: 40), vsync: this);
+
+    curve =
+        CurvedAnimation(parent: sendButtonController, curve: Curves.easeOut);
+
+    sendButtonAnimationSize = Tween(begin: 40.0, end: 78.0).animate(curve);
+    sendButtonAnimationFontSize = Tween(begin: 0.0, end: 15.0).animate(curve);
+
+    sendButtonController.addListener(() {
+      print('${sendButtonController.value}');
+      setState(() {});
+    });
+
+    sendButtonController.addStatusListener((AnimationStatus status) {
+      print(status);
+    });
 
     focusNode.addListener(() {
       setState(() {
@@ -190,9 +213,13 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     });
   }
 
-  scrollToBottom({ offset = 0 }) {
-    _scrollController.animateTo(_scrollController.position.maxScrollExtent - offset,
-        curve: Curves.easeOut, duration: Duration(milliseconds: 200));
+  scrollToBottom({offset = 0, duration = 150}) {
+    double diff = _scrollController.position.maxScrollExtent - offset;
+
+    diff = diff > 0 ? diff : 0;
+
+    _scrollController.animateTo(diff,
+        curve: Curves.easeOut, duration: Duration(milliseconds: duration));
   }
 
   @override
@@ -269,6 +296,12 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     setState(() {
                       currentText = val;
                     });
+
+                    if (val.length > 0) {
+                      sendButtonController.forward();
+                    } else {
+                      sendButtonController.reverse();
+                    }
                   },
                   controller: inputController,
                   cursorColor: AppColors.primayGreen,
@@ -296,13 +329,15 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
               ),
               currentText.length > 0
                   ? Container(
-                      width: 78.0,
+                      width: sendButtonAnimationSize.value,
                       height: 32.0,
                       padding: EdgeInsets.only(left: 5.0, right: 10.0),
                       child: FlatButton(
                         child: Text(
                           '发送',
-                          style: TextStyle(color: Colors.white, fontSize: 15.0),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: sendButtonAnimationFontSize.value),
                         ),
                         color: AppColors.primayGreen,
                         shape: RoundedRectangleBorder(
