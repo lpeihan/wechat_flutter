@@ -296,7 +296,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
               ),
               currentText.length > 0
                   ? Container(
-                      width: 80.0,
+                      width: 78.0,
                       height: 32.0,
                       padding: EdgeInsets.only(left: 5.0, right: 10.0),
                       child: FlatButton(

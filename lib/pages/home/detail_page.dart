@@ -10,6 +10,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
+        centerTitle: true,
         title: Text(arguments['title'], style: TextStyle(fontSize: 17.0),),
         leading: IconButton(
           icon: Icon(
