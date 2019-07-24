@@ -12,3 +12,6 @@ git clone https://github.com/lpeihan/wechat_flutter.git
 
 flutter run
 ```
+## Issues
+
+如果有问题可以给留言，作者会积极回复
