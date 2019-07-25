@@ -170,8 +170,7 @@ class _ChatDetailPageState extends State<ChatDetailPage>
   FocusNode focusNode = FocusNode();
   bool hasFocus = false;
   AnimationController sendButtonController;
-  Animation sendButtonAnimationSize;
-  Animation sendButtonAnimationFontSize;
+  Animation sendButtonAnimation;
   CurvedAnimation curve;
 
   _hideKeyBoard() {
@@ -183,13 +182,11 @@ class _ChatDetailPageState extends State<ChatDetailPage>
     super.initState();
 
     sendButtonController =
-        AnimationController(duration: Duration(milliseconds: 40), vsync: this);
+        AnimationController(duration: Duration(milliseconds: 100), vsync: this);
 
-    curve =
-        CurvedAnimation(parent: sendButtonController, curve: Curves.easeOut);
+    curve = CurvedAnimation(parent: sendButtonController, curve: Curves.linear);
 
-    sendButtonAnimationSize = Tween(begin: 40.0, end: 78.0).animate(curve);
-    sendButtonAnimationFontSize = Tween(begin: 0.0, end: 15.0).animate(curve);
+    sendButtonAnimation = Tween(begin: 0.8, end: 1.0).animate(curve);
 
     sendButtonController.addListener(() {
       print('${sendButtonController.value}');
@@ -328,34 +325,37 @@ class _ChatDetailPageState extends State<ChatDetailPage>
                 ),
               ),
               currentText.length > 0
-                  ? Container(
-                      width: sendButtonAnimationSize.value,
-                      height: 32.0,
-                      padding: EdgeInsets.only(left: 5.0, right: 10.0),
-                      child: FlatButton(
-                        child: Text(
-                          '发送',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: sendButtonAnimationFontSize.value),
-                        ),
-                        color: AppColors.primayGreen,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3.0)),
-                        onPressed: () {
-                          setState(() {
-                            conversation.messages.add({
-                              'content': currentText,
-                              'updateAt': '',
-                              'avatar': '',
-                              'self': true
+                  ? Transform.scale(
+                      scale: sendButtonAnimation.value,
+                      alignment: Alignment.centerRight,
+                      child: Container(
+                        width: 78.0,
+                        height: 32.0,
+                        padding: EdgeInsets.only(left: 5.0, right: 10.0),
+                        child: FlatButton(
+                          child: Text(
+                            '发送',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 15.0),
+                          ),
+                          color: AppColors.primayGreen,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(3.0)),
+                          onPressed: () {
+                            setState(() {
+                              conversation.messages.add({
+                                'content': currentText,
+                                'updateAt': '',
+                                'avatar': '',
+                                'self': true
+                              });
+                              currentText = '';
+                              inputController.text = '';
                             });
-                            currentText = '';
-                            inputController.text = '';
-                          });
 
-                          scrollToBottom();
-                        },
+                            scrollToBottom();
+                          },
+                        ),
                       ),
                     )
                   : InkWell(
