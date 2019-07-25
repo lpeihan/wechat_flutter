@@ -4,7 +4,7 @@
 ## preview
 ![二维码](http://images.ipeihan.top/20190722215842.png)
 
-这里的预览是直接用flutter项目直接迁移到flutter-web的，具体可以参考官方文档 https://github.com/flutter/flutter_web
+这里的预览是用flutter项目直接迁移到flutter-web的，具体可以参考官方文档 https://github.com/flutter/flutter_web
 
 ## How to start
 ```shell
