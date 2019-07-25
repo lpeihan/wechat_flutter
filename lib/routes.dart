@@ -19,6 +19,8 @@ var onGenerateRoute = (RouteSettings settings) {
     Route route;
   
     if (settings.arguments != null) {
+      // CupertinoPageRoute 是 ios 从右到左的过渡效果
+      // MaterialPageRoute 在安卓是从下往上
       route = CupertinoPageRoute(
         builder: (context) => pageBuilder(context, arguments: settings.arguments)
       );

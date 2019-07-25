@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wechat_flutter/components/slider_bottom_route.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/models/chat.dart';
 import 'package:wechat_flutter/pages/chat/chat_detail_page.dart';
+import 'package:wechat_flutter/pages/chat/mac_login.dart';
 
 class ChatPage extends StatelessWidget {
   var tapPos;
@@ -57,8 +59,7 @@ class ChatPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12.0),
       color: Color(0xfff3f3f3),
       onPressed: () {
-        Navigator.of(context)
-            .pushNamed('/detail', arguments: {'title': 'Mac 已登录'});
+        Navigator.push(context, SliderBottomRoute(page: MacLogin()));
       },
       child: Container(
         height: 50.0,
