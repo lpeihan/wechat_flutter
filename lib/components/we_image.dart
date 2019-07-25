@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class WeImage extends StatelessWidget {
@@ -20,6 +21,14 @@ class WeImage extends StatelessWidget {
     return image.startsWith('http');
   }
 
+  _fadeImage() {
+    return FadeInImage(
+      placeholder: AssetImage('assets/images/default.png'),
+      image: CachedNetworkImageProvider(image),
+      fit: BoxFit.cover,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     BorderRadius _borderRadius = BorderRadius.all(Radius.circular(radius));
@@ -32,7 +41,7 @@ class WeImage extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: _borderRadius,
-        child: isImageFromNet ? Image.network(image, fit: BoxFit.cover,)
+        child: isImageFromNet ? _fadeImage()
           : Image.asset(image, fit: BoxFit.cover,),
       ),
     );

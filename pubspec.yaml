@@ -24,6 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   url_launcher: ^5.1.0
+  cached_network_image: ^1.1.1
 
 
 dev_dependencies:
@@ -69,7 +70,7 @@ flutter:
     - assets/images/ic_emotions.png
     - assets/images/ic_settings.png
     - assets/images/ic_qrcode_preview_tiny.png
-    - assets/images/default_nor_avatar.png
+    - assets/images/default.png
     - assets/images/ic_weixin.png
     - assets/images/github.png
 
