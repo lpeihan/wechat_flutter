@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
@@ -87,6 +88,18 @@ class SelfChatBox extends StatelessWidget {
   const SelfChatBox({Key key, this.conversation, this.message})
       : super(key: key);
 
+
+  Widget _image() {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Image.file(message['image'], width: 150.0,),
+        ],
+      )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget _sendTime = message['updateAt'].length > 0
@@ -100,6 +113,40 @@ class SelfChatBox extends StatelessWidget {
           )
         : Container();
 
+    Widget _content = Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Stack(
+            overflow: Overflow.visible,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.only(left: 50.0),
+                decoration: BoxDecoration(
+                    color: Color(0xff9eec77),
+                    borderRadius: BorderRadius.circular(5.0)),
+                child: Text(
+                  message['content'],
+                  style: TextStyle(fontSize: 16.0),
+                ),
+              ),
+              Positioned(
+                right: -10.0,
+                top: 11.0,
+                child: Icon(
+                  IconFont.iconright_s,
+                  size: 16.0,
+                  color: Color(0xff9eec77),
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+
     return Column(children: <Widget>[
       _sendTime,
       Container(
@@ -107,39 +154,7 @@ class SelfChatBox extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Stack(
-                      overflow: Overflow.visible,
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.all(10.0),
-                          margin: EdgeInsets.only(left: 50.0),
-                          decoration: BoxDecoration(
-                              color: Color(0xff9eec77),
-                              borderRadius: BorderRadius.circular(5.0)),
-                          child: Text(
-                            message['content'],
-                            style: TextStyle(fontSize: 16.0),
-                          ),
-                        ),
-                        Positioned(
-                          right: -10.0,
-                          top: 11.0,
-                          child: Icon(
-                            IconFont.iconright_s,
-                            size: 16.0,
-                            color: Color(0xff9eec77),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
+              message['content'].length == 0 ? _image() : _content,
               SizedBox(
                 width: 14.0,
               ),
@@ -172,6 +187,7 @@ class _ChatDetailPageState extends State<ChatDetailPage>
   AnimationController sendButtonController;
   Animation sendButtonAnimation;
   CurvedAnimation curve;
+  Conversation conversation;
 
   _hideKeyBoard() {
     FocusScope.of(context).requestFocus(FocusNode());
@@ -210,6 +226,20 @@ class _ChatDetailPageState extends State<ChatDetailPage>
     });
   }
 
+  _openImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+       conversation.messages.add({
+        'image': image,
+        'updateAt': '',
+        'content': '',
+        'avatar': '',
+        'self': true
+      });
+    });
+  }
+
   scrollToBottom({offset = 0, duration = 150}) {
     double diff = _scrollController.position.maxScrollExtent - offset;
 
@@ -221,7 +251,7 @@ class _ChatDetailPageState extends State<ChatDetailPage>
 
   @override
   Widget build(BuildContext context) {
-    Conversation conversation = conversations[widget.arguments['index']];
+    conversation = conversations[widget.arguments['index']];
 
     return Scaffold(
       appBar: AppBar(
@@ -359,6 +389,9 @@ class _ChatDetailPageState extends State<ChatDetailPage>
                       ),
                     )
                   : InkWell(
+                      onTap: () {
+                        _openImage();
+                      },
                       child: Container(
                         padding: EdgeInsets.only(left: 5.0, right: 10.0),
                         child: Icon(
