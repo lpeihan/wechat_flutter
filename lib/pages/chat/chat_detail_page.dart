@@ -22,7 +22,7 @@ class ChatBox extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               message['updateAt'],
-              style: TextStyle(color: Color(0xff999999), fontSize: 13.0),
+              style: TextStyle(color: AppColors.grey2, fontSize: 13.0),
             ),
           )
         : Container();

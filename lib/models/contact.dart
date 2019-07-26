@@ -6,7 +6,8 @@ class Contact {
     @required this.name,
     this.letter,
     this.area,
-    this.sex
+    this.sex,
+    this.id
   });
 
   final String avatar;
@@ -14,6 +15,7 @@ class Contact {
   final String letter;
   final String area;
   final int sex;
+  final int id;
 }
 
 const INDEX_LETTERS = [
@@ -54,6 +56,7 @@ List<Contact> contacts = [
     letter: 'A',
     area: '福建 厦门',
     sex: 0,
+    id: 0,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/45.jpg',
@@ -61,6 +64,7 @@ List<Contact> contacts = [
     letter: 'A',
     area: '福建 厦门',
     sex: 1,
+    id: 1,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/18.jpg',
@@ -68,6 +72,7 @@ List<Contact> contacts = [
     letter: 'A',
     area: '福建 厦门',
     sex: 0,
+    id: 2,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/60.jpg',
@@ -75,6 +80,7 @@ List<Contact> contacts = [
     letter: 'B',
     area: '福建 厦门',
     sex: 0,
+    id: 3,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
@@ -82,6 +88,7 @@ List<Contact> contacts = [
     letter: 'B',
     area: '福建 厦门',
     sex: 1,
+    id: 4,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/12.jpg',
@@ -89,6 +96,7 @@ List<Contact> contacts = [
     letter: 'B',
     area: '福建 厦门',
     sex: 1,
+    id: 5,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/17.jpg',
@@ -96,6 +104,7 @@ List<Contact> contacts = [
     letter: 'D',
     area: '福建 厦门',
     sex: 0,
+    id: 6,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/91.jpg',
@@ -103,6 +112,7 @@ List<Contact> contacts = [
     letter: 'D',
     area: '福建 厦门',
     sex: 0,
+    id: 7,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/91.jpg',
@@ -110,6 +120,7 @@ List<Contact> contacts = [
     letter: 'D',
     area: '福建 厦门',
     sex: 0,
+    id: 8,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/76.jpg',
@@ -117,6 +128,7 @@ List<Contact> contacts = [
     letter: 'J',
     area: '福建 厦门',
     sex: 0,
+    id: 9,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/60.jpg',
@@ -124,6 +136,7 @@ List<Contact> contacts = [
     letter: 'J',
     area: '福建 厦门',
     sex: 1,
+    id: 10,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/64.jpg',
@@ -131,6 +144,7 @@ List<Contact> contacts = [
     letter: 'J',
     area: '福建 厦门',
     sex: 1,
+    id: 11,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/64.jpg',
@@ -138,6 +152,7 @@ List<Contact> contacts = [
     letter: 'J',
     area: '福建 厦门',
     sex: 1,
+    id: 12,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/53.jpg',
@@ -145,6 +160,7 @@ List<Contact> contacts = [
     letter: 'M',
     area: '福建 厦门',
     sex: 1,
+    id: 13,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/53.jpg',
@@ -152,6 +168,7 @@ List<Contact> contacts = [
     letter: 'M',
     area: '福建 厦门',
     sex: 1,
+    id: 14,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/7.jpg',
@@ -159,6 +176,7 @@ List<Contact> contacts = [
     letter: 'M',
     area: '福建 厦门',
     sex: 1,
+    id: 15,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/7.jpg',
@@ -166,6 +184,7 @@ List<Contact> contacts = [
     letter: 'M',
     area: '福建 厦门',
     sex: 1,
+    id: 16,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/50.jpg',
@@ -173,6 +192,15 @@ List<Contact> contacts = [
     letter: 'M',
     area: '福建 厦门',
     sex: 0,
+    id: 17,
+  ),
+  const Contact(
+    avatar: 'http://p1.music.126.net/fD7IW_jB5A4oxaN5vQ2haw==/109951163813454382.jpg?param=177y177',
+    name: 'Rose',
+    letter: 'R',
+    area: '福建 厦门',
+    sex: 0,
+    id: 42,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/11.jpg',
@@ -180,6 +208,7 @@ List<Contact> contacts = [
     letter: 'S',
     area: '福建 厦门',
     sex: 0,
+    id: 18,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/11.jpg',
@@ -187,6 +216,7 @@ List<Contact> contacts = [
     letter: 'S',
     area: '福建 厦门',
     sex: 0,
+    id: 19,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/11.jpg',
@@ -194,6 +224,7 @@ List<Contact> contacts = [
     letter: 'S',
     area: '福建 厦门',
     sex: 0,
+    id: 20,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/11.jpg',
@@ -201,6 +232,7 @@ List<Contact> contacts = [
     letter: 'S',
     area: '福建 厦门',
     sex: 0,
+    id: 21,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/55.jpg',
@@ -208,6 +240,7 @@ List<Contact> contacts = [
     letter: 'T',
     area: '福建 厦门',
     sex: 0,
+    id: 22,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/55.jpg',
@@ -215,6 +248,7 @@ List<Contact> contacts = [
     letter: 'T',
     area: '福建 厦门',
     sex: 0,
+    id: 23,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
@@ -222,6 +256,7 @@ List<Contact> contacts = [
     letter: 'V',
     area: '福建 厦门',
     sex: 0,
+    id: 24,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
@@ -229,6 +264,7 @@ List<Contact> contacts = [
     letter: 'V',
     area: '福建 厦门',
     sex: 0,
+    id: 25,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
@@ -236,6 +272,7 @@ List<Contact> contacts = [
     letter: 'V',
     area: '福建 厦门',
     sex: 0,
+    id: 26,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/65.jpg',
@@ -243,6 +280,7 @@ List<Contact> contacts = [
     letter: 'V',
     area: '福建 厦门',
     sex: 0,
+    id: 27,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/35.jpg',
@@ -250,6 +288,7 @@ List<Contact> contacts = [
     letter: 'G',
     area: '福建 厦门',
     sex: 1,
+    id: 28,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/86.jpg',
@@ -257,6 +296,7 @@ List<Contact> contacts = [
     letter: 'T',
     area: '福建 厦门',
     sex: 1,
+    id: 29,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/20.jpg',
@@ -264,6 +304,7 @@ List<Contact> contacts = [
     letter: 'Y',
     area: '福建 厦门',
     sex: 0,
+    id: 30,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/21.jpg',
@@ -271,6 +312,7 @@ List<Contact> contacts = [
     letter: 'Y',
     area: '福建 厦门',
     sex: 0,
+    id: 31,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/22.jpg',
@@ -278,6 +320,7 @@ List<Contact> contacts = [
     letter: 'Y',
     area: '福建 厦门',
     sex: 0,
+    id: 32,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/66.jpg',
@@ -285,6 +328,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 1,
+    id: 33,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/70.jpg',
@@ -292,6 +336,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 1,
+    id: 34,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/73.jpg',
@@ -299,6 +344,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 1,
+    id: 35,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/74.jpg',
@@ -306,6 +352,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 1,
+    id: 36,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/75.jpg',
@@ -313,6 +360,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 0,
+    id: 37,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/76.jpg',
@@ -320,6 +368,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 1,
+    id: 38,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/77.jpg',
@@ -327,6 +376,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 0,
+    id: 39,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/78.jpg',
@@ -334,6 +384,7 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 1,
+    id: 40,
   ),
   const Contact(
     avatar: 'https://randomuser.me/api/portraits/men/79.jpg',
@@ -341,5 +392,6 @@ List<Contact> contacts = [
     letter: 'Z',
     area: '福建 厦门',
     sex: 1,
+    id: 41,
   ),
 ];

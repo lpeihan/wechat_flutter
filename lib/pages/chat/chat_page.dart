@@ -5,7 +5,6 @@ import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/models/chat.dart';
-import 'package:wechat_flutter/pages/chat/chat_detail_page.dart';
 import 'package:wechat_flutter/pages/chat/mac_login.dart';
 
 class ChatPage extends StatelessWidget {
@@ -101,6 +100,7 @@ class ChatPage extends StatelessWidget {
         index -= 1;
 
         Conversation conversation = conversations[index];
+        Map lastMessage = conversation.messages[conversation.messages.length - 1];
 
         Widget _avatar = WeImage(
           image: conversation.avatar,
@@ -110,7 +110,7 @@ class ChatPage extends StatelessWidget {
 
         Widget _avatarContainer;
         if (conversation.unreadMsgCount > 0) {
-          if (conversation.displayDot) {
+          if (conversation.isMute) {
             _avatarContainer = Stack(
               overflow: Overflow.visible,
               children: <Widget>[
@@ -190,10 +190,10 @@ class ChatPage extends StatelessWidget {
                               Text(conversation.title,
                                   style: TextStyle(
                                       fontSize: 17.0,
-                                      color: Color(conversation.titleColor))),
+                                      color: conversation.type != 'public' ? AppColors.grey1 : AppColors.textBlue)),
                               SizedBox(height: 6.0),
                               Text(
-                                conversation.desc,
+                                lastMessage['content'],
                                 style: TextStyle(color: AppColors.grey3),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
@@ -204,7 +204,7 @@ class ChatPage extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(conversation.updateAt,
+                            Text(lastMessage['updateAt'],
                                 style: TextStyle(
                                     color: AppColors.grey3, fontSize: 12.0)),
                             SizedBox(height: 12.0),
