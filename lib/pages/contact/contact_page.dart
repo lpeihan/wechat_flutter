@@ -10,8 +10,9 @@ const double ITEM_HEIGHT = 64;
 class ContactItem extends StatelessWidget {
   final bool isGroupTitle;
   final Contact contact;
+  final int index;
 
-  const ContactItem({Key key, this.isGroupTitle, @required this.contact})
+  const ContactItem({Key key, this.isGroupTitle, @required this.contact, this.index})
       : super(key: key);
 
   @override
@@ -63,7 +64,11 @@ class ContactItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushNamed('/detail', arguments: { 'title': contact.name });
+        if (contact.sex != null) {
+          Navigator.of(context).pushNamed('/contact/detail', arguments: {
+            'index': index
+          });
+        }
       },
       child: Column(children: _buildWidget),
     );
@@ -110,8 +115,8 @@ class _ContactPageState extends State<ContactPage> {
     super.initState();
 
     _contacts
-      ..addAll(contacts)
-      ..sort((a, b) => a.letter.compareTo(b.letter));
+      ..addAll(contacts);
+      // ..sort((a, b) => a.letter.compareTo(b.letter));
 
     this.initHeight();
 
@@ -207,7 +212,7 @@ class _ContactPageState extends State<ContactPage> {
               }
             }
 
-            return ContactItem(contact: contact, isGroupTitle: isGroupTitle);
+            return ContactItem(contact: contact, isGroupTitle: isGroupTitle, index: index,);
           },
         ),
         Positioned(

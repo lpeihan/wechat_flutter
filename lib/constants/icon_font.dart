@@ -19,7 +19,9 @@ class IconFont {
 	static const IconData iconright = IconData(0xe6e5, fontFamily: _family);
 	static const IconData iconleft = IconData(0xe6e6, fontFamily: _family);
 	static const IconData iconmac = IconData(0xe60d, fontFamily: _family);
+	static const IconData iconman = IconData(0xe62b, fontFamily: _family);
 	static const IconData iconlock = IconData(0xe6c8, fontFamily: _family);
+	static const IconData iconwoman = IconData(0xe61a, fontFamily: _family);
 	static const IconData iconbiaoqing = IconData(0xe659, fontFamily: _family);
 	static const IconData iconfriends = IconData(0xe638, fontFamily: _family);
 	static const IconData iconmute = IconData(0xe658, fontFamily: _family);
@@ -35,4 +37,5 @@ class IconFont {
 	static const IconData iconfile = IconData(0xe60e, fontFamily: _family);
 	static const IconData iconbiaoqing1 = IconData(0xe604, fontFamily: _family);
 	static const IconData iconconcact = IconData(0xe637, fontFamily: _family);
+	static const IconData iconvideo = IconData(0xe61b, fontFamily: _family);
 }
