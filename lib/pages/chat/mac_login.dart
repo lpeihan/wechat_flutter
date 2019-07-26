@@ -28,9 +28,9 @@ class MacLogin extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30.0)
               ),
-              child: Icon(menu.icon, size: 20.0, color: AppColors.grey2),
+              child: Icon(menu.icon, size: 20.0, color: AppColors.grey3),
             ),
-            Text(menu.title, style: TextStyle(color: AppColors.grey2, fontSize: 12))
+            Text(menu.title, style: TextStyle(color: AppColors.grey3, fontSize: 12))
           ],);
         }).toList()
       ),
@@ -41,6 +41,7 @@ class MacLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.macLoginColor,
         leading: IconButton(
           icon: Icon(IconFont.iconclose, size: 28,),
           onPressed: () {
@@ -50,7 +51,7 @@ class MacLogin extends StatelessWidget {
         elevation: 0.0,
       ),
       body: Container(
-        color: AppColors.primaryColor,
+        color: AppColors.macLoginColor,
         child: Column(
           children: <Widget>[
             Expanded(

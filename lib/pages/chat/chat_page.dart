@@ -57,7 +57,7 @@ class ChatPage extends StatelessWidget {
   Widget _buildPcLogin(BuildContext context) {
     return FlatButton(
       padding: EdgeInsets.symmetric(horizontal: 12.0),
-      color: Color(0xfff3f3f3),
+      color: AppColors.macLoginColor,
       onPressed: () {
         Navigator.push(context, SliderBottomRoute(page: MacLogin()));
       },
