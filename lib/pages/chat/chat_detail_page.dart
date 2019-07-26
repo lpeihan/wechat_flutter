@@ -229,15 +229,17 @@ class _ChatDetailPageState extends State<ChatDetailPage>
   _openImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
 
-    setState(() {
-       conversation.messages.add({
-        'image': image,
-        'updateAt': '',
-        'content': '',
-        'avatar': '',
-        'self': true
+    if (image != null) {
+      setState(() {
+        conversation.messages.add({
+          'image': image,
+          'updateAt': '',
+          'content': '',
+          'avatar': '',
+          'self': true
+        });
       });
-    });
+    }
   }
 
   scrollToBottom({offset = 0, duration = 150}) {
