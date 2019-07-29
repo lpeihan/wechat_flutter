@@ -156,6 +156,10 @@ class ChatPage extends StatelessWidget {
 
         return InkWell(
           onTap: () {
+            if (conversation.type == 'sport') {
+              Navigator.of(context).pushNamed('/wechat/sport');
+              return;
+            }
             Navigator.of(context).pushNamed('/chat/detail',
                 arguments: {'title': conversation.title, 'index': index});
           },

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wechat_flutter/pages/chat/chat_detail_page.dart';
+import 'package:wechat_flutter/pages/chat/wechat_sport_page.dart';
 import 'package:wechat_flutter/pages/contact/contact_detail_page.dart';
 import 'package:wechat_flutter/pages/home/detail_page.dart';
 import 'package:wechat_flutter/pages/home/home_page.dart';
@@ -12,6 +13,7 @@ final routes = {
   '/detail': (context, {arguments}) => DetailPage(arguments: arguments),
   '/chat/detail': (context, {arguments}) => ChatDetailPage(arguments: arguments),
   '/contact/detail': (context, {arguments}) => ContactDetailPage(arguments: arguments),
+  '/wechat/sport': (context) => WechatSportPage()
 };
 
 var onGenerateRoute = (RouteSettings settings) {
