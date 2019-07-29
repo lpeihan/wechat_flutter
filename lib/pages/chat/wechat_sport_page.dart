@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
-import 'package:wechat_flutter/models/chat.dart';
 
 class WechatSportItem extends StatelessWidget {
   final Map item;
@@ -105,7 +104,7 @@ class WechatSportPage extends StatelessWidget {
         elevation: 0.5,
         centerTitle: true,
         title: Text(
-          conversations[0].title,
+          '微信运动',
           style: TextStyle(fontSize: 18.0),
         ),
         leading: IconButton(

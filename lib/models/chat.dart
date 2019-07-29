@@ -49,9 +49,10 @@ List<Conversation> conversations = [
     messages: [
       {
         'avatar': '',
-        'content': '豪车与出租车刮擦 俩车主划拳定责',
-        'updateAt': '18:20',
-        'self': false
+        'content': '马伊琍结束11年婚姻，为什么这场离婚是众望所归',
+        'updateAt': '07-28',
+        'self': false,
+        'picUrl': 'https://inews.gtimg.com/newsapp_bt/0/8612966978/1000'
       }
     ]
   ),

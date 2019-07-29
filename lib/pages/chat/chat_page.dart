@@ -5,7 +5,7 @@ import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 import 'package:wechat_flutter/models/chat.dart';
-import 'package:wechat_flutter/pages/chat/mac_login.dart';
+import 'package:wechat_flutter/pages/chat/mac_login_page.dart';
 
 class ChatPage extends StatelessWidget {
   var tapPos;
@@ -58,7 +58,7 @@ class ChatPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 12.0),
       color: AppColors.macLoginColor,
       onPressed: () {
-        Navigator.push(context, SliderBottomRoute(page: MacLogin()));
+        Navigator.push(context, SliderBottomRoute(page: MacLoginPage()));
       },
       child: Container(
         height: 50.0,
@@ -158,10 +158,13 @@ class ChatPage extends StatelessWidget {
           onTap: () {
             if (conversation.type == 'sport') {
               Navigator.of(context).pushNamed('/wechat/sport');
-              return;
-            }
-            Navigator.of(context).pushNamed('/chat/detail',
+            } else if (conversation.type == 'public') {
+              Navigator.of(context).pushNamed('/wechat/public',
                 arguments: {'title': conversation.title, 'index': index});
+            } else {
+              Navigator.of(context).pushNamed('/chat/detail',
+                arguments: {'title': conversation.title, 'index': index});
+            }
           },
           onTapDown: (TapDownDetails details) {
             tapPos = details.globalPosition;

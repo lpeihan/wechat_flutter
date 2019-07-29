@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
 
-class MacLogin extends StatelessWidget {
+class MacLoginPage extends StatelessWidget {
 
-  const MacLogin({Key key}) : super(key: key);
+  const MacLoginPage({Key key}) : super(key: key);
 
 
   _buildMenuIcons() {
