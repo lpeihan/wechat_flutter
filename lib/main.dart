@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wechat_flutter/pages/home/splash_page.dart';
 import 'constants/app_colors.dart';
 import 'routes.dart';
 
@@ -15,7 +16,8 @@ class Wechat extends StatelessWidget {
         primaryColor: AppColors.primaryColor
       ),
 
-      initialRoute: '/',
+      home: SplashPage(), // 引导页面
+      // initialRoute: '/', 
       onGenerateRoute: onGenerateRoute,
       debugShowCheckedModeBanner: false,
     );

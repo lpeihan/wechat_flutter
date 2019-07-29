@@ -9,7 +9,7 @@ import 'package:wechat_flutter/pages/home/home_page.dart';
 import 'package:wechat_flutter/pages/search/search_page.dart';
 
 final routes = {
-  '/': (context) => HomePage(),
+  '/home': (context) => HomePage(),
   '/search': (context) => SearchPage(),
   '/detail': (context, {arguments}) => DetailPage(arguments: arguments),
   '/chat/detail': (context, {arguments}) => ChatDetailPage(arguments: arguments),
