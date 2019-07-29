@@ -18,61 +18,60 @@ class WechatSportItem extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(item['time'], style: TextStyle(fontSize: 13.0, color: AppColors.grey3),),
         ),
-        Material(
-          child: InkWell(
-            onTap: () {},
-            child: Container(
-              padding: EdgeInsets.only(top: 15, left: 20, right: 20),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5.0),
-                border: Border.all(color: AppColors.borderColor)
-              ),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Column(
-                        children: <Widget>[
-                          Text(item['rank'], style: TextStyle(color: AppColors.primayGreen, fontSize: 34.0, fontWeight: FontWeight.w400)),
-                          Text('名次', style: TextStyle(color: AppColors.primayGreen, fontSize: 15.0))
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Text(item['walkCount'], style: TextStyle(color: AppColors.primayGreen, fontSize: 34.0, fontWeight: FontWeight.w400)),
-                          Text('步数', style: TextStyle(color: AppColors.primayGreen, fontSize: 15.0))
-                        ],
-                      )
-                    ],
-                  ),
-                  SizedBox(height:40.0,),
-                  Container(
-                    height: 72,
-                    decoration: BoxDecoration(
-                      border: Border(top: BorderSide(color: AppColors.borderColor, width: 0.5))
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(6.0),
+            border: Border.all(color: AppColors.borderColor),
+            color: Colors.white,
+          ),
+          child: FlatButton(
+            padding: EdgeInsets.only(top: 15, left: 20, right: 20),
+            onPressed: () {},
+            child: Column(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
                       children: <Widget>[
-                        WeImage(
-                          width: 48.0,
-                          height: 48.0,
-                          radius: 24.0,
-                          image: item['avatar']),
-                        SizedBox(width: 15.0,),
-                        Expanded(
-                          child: Text('夺得${item["date"]}排行榜冠军', style: TextStyle(fontSize: 16.0, color: AppColors.primayGreen),),
-                        ),
-                        Icon(IconFont.iconright, color: AppColors.grey3,)
+                        Text(item['rank'], style: TextStyle(color: AppColors.primayGreen, fontSize: 34.0, fontWeight: FontWeight.w400)),
+                        Text('名次', style: TextStyle(color: AppColors.primayGreen, fontSize: 15.0))
                       ],
                     ),
-                  )
-                ],
-              ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        Text(item['walkCount'], style: TextStyle(color: AppColors.primayGreen, fontSize: 34.0, fontWeight: FontWeight.w400)),
+                        Text('步数', style: TextStyle(color: AppColors.primayGreen, fontSize: 15.0))
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(height:40.0,),
+                Container(
+                  height: 72,
+                  decoration: BoxDecoration(
+                    border: Border(top: BorderSide(color: AppColors.borderColor, width: 0.5))
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      WeImage(
+                        width: 48.0,
+                        height: 48.0,
+                        radius: 24.0,
+                        image: item['avatar']),
+                      SizedBox(width: 15.0,),
+                      Expanded(
+                        child: Text('夺得${item["date"]}排行榜冠军', style: TextStyle(fontSize: 16.0, color: AppColors.primayGreen),),
+                      ),
+                      Icon(IconFont.iconright, color: AppColors.grey3,)
+                    ],
+                  ),
+                )
+              ],
             ),
-          )
+          ),
         )
       ],
     );
