@@ -7,6 +7,7 @@ class WeImage extends StatelessWidget {
   final double height;
   final double radius;
   final BoxFit fit;
+  final VoidCallback onPressed;
 
   const WeImage({
     Key key,
@@ -14,7 +15,8 @@ class WeImage extends StatelessWidget {
     this.width = 50.0,
     this.height = 50.0,
     this.radius = 4.0,
-    this.fit = BoxFit.cover
+    this.fit = BoxFit.cover,
+    this.onPressed
   }) :
   assert(image != null),
   super(key: key);
@@ -34,8 +36,7 @@ class WeImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BorderRadius _borderRadius = BorderRadius.all(Radius.circular(radius));
-
-    return Container(
+    Widget _image = Container(
       width: width,
       height: height,
       decoration: BoxDecoration(
@@ -47,5 +48,12 @@ class WeImage extends StatelessWidget {
           : Image.asset(image, fit: BoxFit.cover,),
       ),
     );
+
+    return onPressed != null ? InkWell(
+      child: _image,
+      onTap: () {
+        onPressed();
+      },
+    ) : _image;
   }
 }

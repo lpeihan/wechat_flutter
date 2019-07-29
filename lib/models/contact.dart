@@ -123,6 +123,14 @@ List<Contact> contacts = [
     id: 8,
   ),
   const Contact(
+    avatar: 'https://randomuser.me/api/portraits/women/57.jpg',
+    name: 'Lily',
+    letter: 'L',
+    area: '福建 厦门',
+    sex: 0,
+    id: 43
+  ),
+  const Contact(
     avatar: 'https://randomuser.me/api/portraits/women/76.jpg',
     name: 'Jerry',
     letter: 'J',
@@ -243,8 +251,8 @@ List<Contact> contacts = [
     id: 22,
   ),
   const Contact(
-    avatar: 'https://randomuser.me/api/portraits/women/55.jpg',
-    name: 'Teddy',
+    avatar: 'https://randomuser.me/api/portraits/men/14.jpg',
+    name: 'Tina Morgan',
     letter: 'T',
     area: '福建 厦门',
     sex: 0,
@@ -395,3 +403,12 @@ List<Contact> contacts = [
     id: 41,
   ),
 ];
+
+
+getContactById(id) {
+  for (int i = 0; i < contacts.length; i++) {
+    if (id == contacts[i].id) {
+      return contacts[i];
+    }
+  }
+}

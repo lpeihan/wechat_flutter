@@ -74,13 +74,14 @@ List<Conversation> conversations = [
         'avatar': '',
         'content': 'Never let go.',
         'updateAt': '17:56',
-        'self': true
+        'self': true,
       },
       {
         'avatar': '',
         'content': "I will never let go, Jack, I'll never let go",
         'updateAt': '',
-        'self': false
+        'self': false,
+        'id': 42
       }
     ]
   ),
@@ -95,13 +96,15 @@ List<Conversation> conversations = [
         'avatar': '',
         'content': '在吗',
         'updateAt': '17:00',
-        'self': false
+        'self': false,
+        'id': 23
       },
       {
         'avatar': '',
         'content': '晚自习是什么来着？你知道吗，看到的话赶紧回复我',
         'updateAt': '',
-        'self': false
+        'self': false,
+        'id': '23'
       },
       {
         'avatar': '',
@@ -172,79 +175,92 @@ List<Conversation> conversations = [
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': '昨天'
+        'updateAt': '昨天',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': ''
+        'updateAt': '',
+        'id': 43,
       },
     ]
   ),

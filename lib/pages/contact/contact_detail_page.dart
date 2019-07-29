@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wechat_flutter/components/we_image.dart';
 import 'package:wechat_flutter/constants/app_colors.dart';
 import 'package:wechat_flutter/constants/icon_font.dart';
-import 'package:wechat_flutter/models/contact.dart' show contacts, Contact;
+import 'package:wechat_flutter/models/contact.dart' show contacts, Contact, getContactById;
 
 class ContactDetailField extends StatelessWidget {
   final String title;
@@ -43,7 +43,7 @@ class ContactDetailPage extends StatefulWidget {
 class _ContactDetailPageState extends State<ContactDetailPage> {
   @override
   Widget build(BuildContext context) {
-    Contact contact = contacts[widget.arguments['index']];
+    Contact contact = getContactById(widget.arguments['id']);
 
     return Scaffold(
       appBar: AppBar(

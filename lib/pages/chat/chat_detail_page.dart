@@ -38,6 +38,12 @@ class ChatBox extends StatelessWidget {
                 image: conversation.avatar,
                 width: 40.0,
                 height: 40.0,
+                onPressed: () {
+                  print(message['id']);
+                  Navigator.of(context).pushNamed('/contact/detail', arguments: {
+                    'id': message['id'],
+                  });
+                },
               ),
               SizedBox(
                 width: 14.0,

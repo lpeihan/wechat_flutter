@@ -66,7 +66,7 @@ class ContactItem extends StatelessWidget {
       onTap: () {
         if (contact.sex != null) {
           Navigator.of(context).pushNamed('/contact/detail', arguments: {
-            'index': index
+            'id': contact.id,
           });
         }
       },
