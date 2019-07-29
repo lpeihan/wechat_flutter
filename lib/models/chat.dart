@@ -49,8 +49,15 @@ List<Conversation> conversations = [
     messages: [
       {
         'avatar': '',
+        'content': '《哪吒》首周票房破7亿创动画电影新纪录，不止逆天还“逆跌”',
+        'updateAt': '07-28 12:25',
+        'self': false,
+        'picUrl': 'https://inews.gtimg.com/newsapp_bt/0/9853621795/1000'
+      },
+      {
+        'avatar': '',
         'content': '马伊琍结束11年婚姻，为什么这场离婚是众望所归',
-        'updateAt': '07-28',
+        'updateAt': '07-28 13:01',
         'self': false,
         'picUrl': 'https://inews.gtimg.com/newsapp_bt/0/8612966978/1000'
       }

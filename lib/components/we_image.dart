@@ -6,6 +6,7 @@ class WeImage extends StatelessWidget {
   final double width;
   final double height;
   final double radius;
+  final BoxFit fit;
 
   const WeImage({
     Key key,
@@ -13,6 +14,7 @@ class WeImage extends StatelessWidget {
     this.width = 50.0,
     this.height = 50.0,
     this.radius = 4.0,
+    this.fit = BoxFit.cover
   }) :
   assert(image != null),
   super(key: key);
@@ -25,7 +27,7 @@ class WeImage extends StatelessWidget {
     return FadeInImage(
       placeholder: AssetImage('assets/images/default.png'),
       image: CachedNetworkImageProvider(image),
-      fit: BoxFit.cover,
+      fit: fit,
     );
   }
 
