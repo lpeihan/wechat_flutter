@@ -12,7 +12,7 @@ class Profile {
   });
 }
 const userInfo = Profile(
-  name: '小李子',
+  name: 'Jack',
   avatar: 'https://p2.music.126.net/2MsstS-M9w5-li0aRy3sUQ==/1380986606815861.jpg',
   account: 'Leonardo DiCaprio'
 );

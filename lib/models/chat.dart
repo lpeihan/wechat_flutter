@@ -7,6 +7,7 @@ class Conversation {
   final int unreadMsgCount;
   final List messages;
   final String type;
+  final String updateAt;
 
   Conversation({
     @required this.avatar,
@@ -14,7 +15,8 @@ class Conversation {
     this.isMute,
     this.unreadMsgCount,
     this.messages,
-    this.type
+    this.type,
+    this.updateAt
   }) : assert(avatar != null), assert(title != null);
 }
 
@@ -25,6 +27,7 @@ List<Conversation> conversations = [
     unreadMsgCount: 2,
     isMute: true,
     type: 'sport',
+    updateAt: '20:56',
     messages: [
       {
         'avatar': '',
@@ -46,6 +49,7 @@ List<Conversation> conversations = [
     unreadMsgCount: 0,
     isMute: false,
     type: 'public',
+    updateAt: '17:01',
     messages: [
       {
         'avatar': '',
@@ -57,7 +61,7 @@ List<Conversation> conversations = [
       {
         'avatar': '',
         'content': '马伊琍结束11年婚姻，为什么这场离婚是众望所归',
-        'updateAt': '07-28 13:01',
+        'updateAt': '07-28 17:01',
         'self': false,
         'picUrl': 'https://inews.gtimg.com/newsapp_bt/0/8612966978/1000'
       }
@@ -69,16 +73,32 @@ List<Conversation> conversations = [
     isMute: false,
     unreadMsgCount: 1,
     type: 'chat',
+    updateAt: '16:44',
     messages: [
       {
         'avatar': '',
-        'content': 'Never let go.',
+        'content': '小李子',
         'updateAt': '17:56',
-        'self': true,
+        'self': false,
+        'id': 42
       },
       {
         'avatar': '',
-        'content': "I will never let go, Jack, I'll never let go",
+        'content': "你忙好了吗",
+        'updateAt': '',
+        'self': false,
+        'id': 42
+      },
+      {
+        'avatar': '',
+        'content': "我在写代码，今晚可能要通宵了",
+        'updateAt': '',
+        'self': true,
+        'id': 42
+      },
+      {
+        'avatar': '',
+        'content': "那我先去洗澡了",
         'updateAt': '',
         'self': false,
         'id': 42
@@ -91,6 +111,7 @@ List<Conversation> conversations = [
     isMute: true,
     unreadMsgCount: 0,
     type: 'chat',
+    updateAt: '17:00',
     messages: [
       {
         'avatar': '',
@@ -104,13 +125,7 @@ List<Conversation> conversations = [
         'content': '晚自习是什么来着？你知道吗，看到的话赶紧回复我',
         'updateAt': '',
         'self': false,
-        'id': '23'
-      },
-      {
-        'avatar': '',
-        'content': '五年高考，三年模拟',
-        'updateAt': '18:12',
-        'self': true
+        'id': 23
       }
     ]
   ),
@@ -120,6 +135,7 @@ List<Conversation> conversations = [
     isMute: false,
     unreadMsgCount: 0,
     type: 'public',
+    updateAt: '19:32',
     messages: [
       {
         'avatar': '',
@@ -145,6 +161,7 @@ List<Conversation> conversations = [
     unreadMsgCount: 0,
     isMute: false,
     type: 'public',
+    updateAt: '01:38',
     messages: [
       {
         'avatar': '',
@@ -168,98 +185,15 @@ List<Conversation> conversations = [
     avatar: 'https://randomuser.me/api/portraits/women/57.jpg',
     title: 'Lily',
     isMute: false,
-    unreadMsgCount: 12,
+    unreadMsgCount: 1,
     type: 'chat',
+    updateAt: '昨天',
     messages: [
       {
         'avatar': '',
         'content': '今天要去运动场锻炼吗？',
         'self': false,
-        'updateAt': '昨天',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
-        'id': 43,
-      },
-      {
-        'avatar': '',
-        'content': '今天要去运动场锻炼吗？',
-        'self': false,
-        'updateAt': '',
+        'updateAt': '12:12',
         'id': 43,
       },
     ]
@@ -270,6 +204,7 @@ List<Conversation> conversations = [
     isMute: false,
     unreadMsgCount: 0,
     type: 'chat',
+    updateAt: '昨天',
     messages: [
       {
         'avatar': '',
@@ -280,38 +215,12 @@ List<Conversation> conversations = [
     ]
   ),
   Conversation(
-    avatar: 'https://randomuser.me/api/portraits/women/19.jpg',
-    title: 'Tina Morgan',
-    isMute: false,
-    unreadMsgCount: 3,
-    type: 'chat',
-    messages: [
-      {
-        'avatar': '',
-        'content': '你忙好了吗',
-        'self': false,
-        'updateAt': '昨天'
-      },
-      {
-        'avatar': '',
-        'content': '要直播吗要直播吗要直播吗要直播吗',
-        'self': false,
-        'updateAt': ''
-      },
-      {
-        'avatar': '',
-        'content': '那我先去洗澡了',
-        'self': false,
-        'updateAt': ''
-      }
-    ]
-  ),
-  Conversation(
     avatar: 'https://randomuser.me/api/portraits/women/59.jpg',
     title: '小美',
     isMute: false,
     unreadMsgCount: 0,
     type: 'chat',
+    updateAt: '昨天',
     messages: [
       {
         'avatar': '',
@@ -327,6 +236,7 @@ List<Conversation> conversations = [
     isMute: true,
     unreadMsgCount: 0,
     type: 'chat',
+    updateAt: '周二',
     messages: [
       {
         'avatar': '',
@@ -342,6 +252,7 @@ List<Conversation> conversations = [
     isMute: false,
     unreadMsgCount: 1,
     type: 'chat',
+    updateAt: '07-12',
     messages: [
       {
         'avatar': '',
@@ -357,12 +268,13 @@ List<Conversation> conversations = [
     isMute: false,
     unreadMsgCount: 0,
     type: 'chat',
+    updateAt: '07-13',
     messages: [
       {
         'avatar': '',
         'content': '明天请你看电影，不见不散',
         'self': false,
-        'updateAt': '17月12号'
+        'updateAt': '7月12号'
       }
     ]
   ),

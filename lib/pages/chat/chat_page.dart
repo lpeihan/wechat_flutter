@@ -211,7 +211,7 @@ class ChatPage extends StatelessWidget {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(lastMessage['updateAt'],
+                            Text(conversation.updateAt,
                                 style: TextStyle(
                                     color: AppColors.grey3, fontSize: 12.0)),
                             SizedBox(height: 12.0),

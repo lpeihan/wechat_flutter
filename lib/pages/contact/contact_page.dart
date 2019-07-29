@@ -261,7 +261,7 @@ class _ContactPageState extends State<ContactPage> {
                         style: TextStyle(
                             fontSize: 12.0,
                             color: currentLetter == letter
-                                ? AppColors.primaryColor
+                                ? AppColors.primayGreen
                                 : AppColors.grey1),
                       ),
                     );
