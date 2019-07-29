@@ -18,24 +18,28 @@ class WechatPublicItem extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(message['updateAt'], style: TextStyle(fontSize: 13.0, color: AppColors.grey3),),
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4.0),
-              border: Border.all(color: AppColors.borderColor),
-              color: Colors.white,
-            ),
+          Card(
             child: FlatButton(
               onPressed: () {},
               padding: EdgeInsets.all(0),
               child: Column(
                 children: <Widget>[
                   AspectRatio(
-                    aspectRatio: 4 / 2,
-                    child: WeImage(image: message['picUrl'],)
+                    aspectRatio: 2 / 1,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(4.0),
+                        topRight: Radius.circular(4.0),
+                      ),
+                      child: Image.network(
+                        message['picUrl'],
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
-                    child: Text(message['content'], style: TextStyle(fontSize: 16.0)),
+                  ListTile(
+                    contentPadding: EdgeInsets.all(10.0),
+                    title: Text(message['content'], style: TextStyle(fontSize: 16.0)),
                   )
                 ],
               ),
